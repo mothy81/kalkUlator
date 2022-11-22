@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">kalk-U-lator</string>
+    <string name="choose_material">Wybierz materiał</string>
+    <string name="new_layer">Nowa warstwa</string>
+    <string name="give_thickness">Podaj grubość:</string>
+    <string name="add_layer">Dodaj warstwę</string>
+    <string name="lambda">lambda</string>
+    <string name="enter_layer_thickness">Wprowadź grubość</string>
+    <string name="enter_R">podaj R</string>
+</resources>

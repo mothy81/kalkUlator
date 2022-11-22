@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/menuGroup1">
+        <item android:title="Materiały konstrukcyjne">
+
+<menu>
+    <item android:id="@+id/material11"
+        android:title="Beton zwykły 2400kg/m3"
+        android:tooltipText="1.7"/>
+    <item android:id="@+id/material12"
+        android:title="Beton zwykły 2200kg/m3"
+        android:tooltipText="1.3"/>
+    <item android:id="@+id/material13"
+        android:title="Beton zwykły 1900kg/m3"
+        android:tooltipText="1.0"/>
+    <item android:id="@+id/material14"
+        android:title="Żelbet"
+        android:tooltipText="1.7"/>
+    <item android:id="@+id/material15"
+        android:title="Marmur, granit"
+        android:tooltipText="3.5"/>
+    <item android:id="@+id/material16"
+        android:title="Piaskowiec"
+        android:tooltipText="2.2"/>
+    <item android:id="@+id/material17"
+        android:title="Mur z gazobetonu kl. 500"
+        android:tooltipText="0.17"/>
+    <item android:id="@+id/material18"
+        android:title="Mur z gazobetonu kl. 600"
+        android:tooltipText="0.21"/>
+    <item android:id="@+id/material19"
+        android:title="Mur z gazobetonu kl. 700"
+        android:tooltipText="0.25"/>
+    <item android:id="@+id/material110"
+        android:title="Mur z gazobetonu kl. 800"
+        android:tooltipText="0.29"/>
+    <item android:id="@+id/material111"
+        android:title="Mur z cegły ceramicznej"
+        android:tooltipText="0.77"/>
+    <item android:id="@+id/material112"
+        android:title="Mur z cegły dziurawki"
+        android:tooltipText="0.64"/>
+    <item android:id="@+id/material113"
+        android:title="Mur z cegły klinkierowej"
+        android:tooltipText="1.05"/>
+    <item android:id="@+id/material114"
+        android:title="Mur z bloków silikatowych drążonych"
+        android:tooltipText="0.8"/>
+    <item android:id="@+id/material115"
+        android:title="Mur z bloków silikatowych pełnych"
+        android:tooltipText="0.9"/>
+</menu>
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menuGroup2">
+    <item android:title="Gipsy i wyroby gipsowe">
+        <menu>
+    <item android:id="@+id/material21"
+        android:title="Płyty gipsowo-kartonowe"
+        android:tooltipText="0.23"/>
+    <item android:id="@+id/material22"
+        android:title="Bloki z gipsu"
+        android:tooltipText="0.35"/>
+        </menu>
+    </item>
+    </group>
+
+    <group
+        android:id="@+id/menuGroup3">
+        <item android:title="Drewno i mat. drewnopochodne">
+            <menu>
+                <item android:id="@+id/material31"
+                    android:title="Sosna, świerk w poprzek włókien"
+                    android:tooltipText="0.16"/>
+                <item android:id="@+id/material32"
+                    android:title="Sosna, świerk wzdłuż włókien"
+                    android:tooltipText="0.3"/>
+                <item android:id="@+id/material33"
+                    android:title="Dąb, buk w poprzek włókien"
+                    android:tooltipText="0.22"/>
+                <item android:id="@+id/material34"
+                    android:title="Dąb, buk wzdłuż włókien"
+                    android:tooltipText="0.4"/>
+                <item android:id="@+id/material35"
+                    android:title="Płyta OSB"
+                    android:tooltipText="0.16"/>
+            </menu>
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menuGroup4">
+        <item android:title="Materiały termoizolacyjne">
+            <menu>
+                <item android:id="@+id/material41"
+                    android:title="Styropian λ=0,045"
+                    android:tooltipText="0.045"/>
+                <item android:id="@+id/material42"
+                    android:title="Styropian λ=0,042"
+                    android:tooltipText="0.042"/>
+                <item android:id="@+id/material43"
+                    android:title="Styropian λ=0,040"
+                    android:tooltipText="0.04"/>
+                <item android:id="@+id/material44"
+                    android:title="Styropian λ=0,035"
+                    android:tooltipText="0.035"/>
+                <item android:id="@+id/material45"
+                    android:title="Wełna mineralna λ=0,045"
+                    android:tooltipText="0.045"/>
+                <item android:id="@+id/material46"
+                    android:title="Wełna mineralna λ=0,040"
+                    android:tooltipText="0.040"/>
+                <item android:id="@+id/material47"
+                    android:title="Wełna mineralna λ=0,033"
+                    android:tooltipText="0.033"/>
+                <item android:id="@+id/material48"
+                    android:title="Wełna mineralna λ=0,035"
+                    android:tooltipText="0.035"/>
+                <item android:id="@+id/material49"
+                    android:title="Płyty PU λ=0,029"
+                    android:tooltipText="0.029"/>
+                <item android:id="@+id/material410"
+                    android:title="Płyty PIR λ=0,023"
+                    android:tooltipText="0.023"/>
+                <item android:id="@+id/material411"
+                    android:title="Nieruchoma warstwa powietrza"
+                    android:tooltipText="0.02"/>
+            </menu>
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menuGroup5">
+        <item android:title="Materiały osłonowe">
+            <menu>
+                <item android:id="@+id/material51"
+                    android:title="Tynk cementowy"
+                    android:tooltipText="1.0"/>
+                <item android:id="@+id/material52"
+                    android:title="Tynk cementowo-wapienny"
+                    android:tooltipText="0.82"/>
+                <item android:id="@+id/material53"
+                    android:title="Tynk wapienny"
+                    android:tooltipText="0.7"/>
+                <item android:id="@+id/material54"
+                    android:title="Tynk cienkowarstwowy"
+                    android:tooltipText="0.7"/>
+            </menu>
+        </item>
+    </group>
+
+
+</menu>
