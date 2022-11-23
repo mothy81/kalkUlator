@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,8 +13,6 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.empro.kalk_u_lator.data.LayersList;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -24,16 +21,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private RecyclerView mRecyclerView;
     private LayerAdapter mAdapter;
     private RecyclerView.LayoutManager mlayoutManager;
-    private LayersList layerdata;
 
     private Button increaseButton;
     private Button decreaseButton;
     private Button layerPopUpButton;
     private Button newLayerButton;
+    private Button goToDialogButton;
     private TextView lambdaValue;
     private TextView rBoxValue;
     private EditText thicknessValue;
-    private MenuItem material11;
+    private MenuItem materialMenu;
     private Menu menuValues;
 
     private Double dValue;
@@ -43,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private String mValue;
     private Double rSum;
 
+
+    public TextView exchangeField;
+    public int exchangeFieldValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         rBoxValue = findViewById(R.id.rBoxValue);
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
+        exchangeField = findViewById(R.id.exchangeField);
 
     }
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         public void changeItem(int position, String text)
         {
-            mLayerList.get(position).changeText1(text);
+            mLayerList.get(position).changeText2(text);
             mAdapter.notifyItemChanged(position);
         }
 
@@ -91,12 +92,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             mAdapter = new LayerAdapter(mLayerList);
             mRecyclerView.setLayoutManager(mlayoutManager);
             mRecyclerView.setAdapter(mAdapter);
-            material11 = findViewById(R.id.material11);
+            materialMenu = findViewById(R.id.material11);
 
             mAdapter.setOnItemClickListener(new LayerAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
-                    changeItem(position, "Clicked");
+                    DialogWindow dialog = new DialogWindow();
+                    dialog.show(getSupportFragmentManager(), "dialog ");
+
+
+
+                    changeItem(position, "d= "+exchangeField.getText().toString());
+
                 }
 
                 @Override
@@ -111,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             newLayerButton = findViewById(R.id.goToNewLayerLayout);
             decreaseButton = findViewById(R.id.thickness_decrease_button);
             increaseButton = findViewById(R.id.thickness_increase_button);
-
 
             newLayerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -130,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     thicknessValue.setVisibility(View.INVISIBLE);
                     decreaseButton.setVisibility(View.INVISIBLE);
                     increaseButton.setVisibility(View.INVISIBLE);
+
+
 
                     rSum = 0.17;
 
@@ -181,6 +189,22 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 }
             });
         }
+
+    private void uCalc() {
+        int position = mLayerList.size();
+        rSum = 0.17;
+
+        for (int i=0; i<position+1; i++)
+        {
+            String rString = (mLayerList.get(i).getText4());
+            int rStringLenght = rString.length();
+            rString = rString.substring(3, rStringLenght);
+            rSum = rSum + Double.valueOf(rString);
+            rSum = (double) Math.round(rSum*100)/100;
+        }
+        rSum = (double)Math.round(1000/rSum)/1000;
+        rBoxValue.setText("U= "+rSum.toString());
+    }
 
     public void showPopUp(View v){
         PopupMenu popup = new PopupMenu(this, v);

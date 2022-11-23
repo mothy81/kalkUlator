@@ -16,9 +16,9 @@ public class SingleItem {
         mtext4 = text4;
     }
 
-    public void changeText1(String text)
+    public void changeText2(String text)
     {
-        mtext1 = text;
+        mtext2 = text;
     }
 
     public int getmImageResource()
