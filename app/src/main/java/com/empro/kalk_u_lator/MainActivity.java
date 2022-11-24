@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Button decreaseButton;
     private Button layerPopUpButton;
     private Button newLayerButton;
-    private Button goToDialogButton;
     private TextView lambdaValue;
     private TextView rBoxValue;
     private EditText thicknessValue;
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
     public TextView exchangeField;
-    public int exchangeFieldValue;
     public int ItemPosition;
 
     @Override
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         rBoxValue = findViewById(R.id.rBoxValue);
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
-        exchangeField = findViewById(R.id.exchangeField);
+
 
     }
 
@@ -99,13 +97,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     DialogWindow2 dialog = new DialogWindow2();
                     dialog.show(getSupportFragmentManager(), "dialog ");
 
-
-
-
-
-                    //changeItem(position, "d= "+exchangeField.getText().toString());
-
-                    //uCalc();
 
                 }
 
@@ -379,9 +370,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     public void applyText(String thickness) {
-        exchangeField.setText(thickness);
+
         int position = ItemPosition;
-        changeItem(position, "d= "+exchangeField.getText().toString());
+        changeItem(position, "d= "+ thickness);
     }
 }
 

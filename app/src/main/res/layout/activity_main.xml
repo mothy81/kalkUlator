@@ -108,13 +108,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/thicknessValueEditText"
         app:layout_constraintStart_toEndOf="@+id/thicknessValueEditText" />
 
-    <TextView
-        android:id="@+id/exchangeField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/popup_button"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,8 +24,7 @@ public class DialogWindow extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.d_change_dialog, container, false);
 
-        okButton = view.findViewById(R.id.dialog_ok_button);
-        cancelButton = view.findViewById(R.id.dialog_cancel_button);
+
         thicknesValue = view.findViewById(R.id.thicknessDialogValue);
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
