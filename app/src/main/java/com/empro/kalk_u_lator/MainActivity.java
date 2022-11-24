@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DialogWindow2.DialogWindowListener {
 
     private ArrayList<SingleItem> mLayerList;
     private RecyclerView mRecyclerView;
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private MenuItem materialMenu;
     private Menu menuValues;
 
+
     private Double dValue;
     private int dValue2;
     private Double lValue;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     public TextView exchangeField;
     public int exchangeFieldValue;
+    public int ItemPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +93,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             mAdapter.setOnItemClickListener(new LayerAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
-                    DialogWindow dialog = new DialogWindow();
+
+                    ItemPosition = position;
+
+                    DialogWindow2 dialog = new DialogWindow2();
                     dialog.show(getSupportFragmentManager(), "dialog ");
 
 
 
-                    changeItem(position, "d= "+exchangeField.getText().toString());
 
-                    uCalc();
+
+                    //changeItem(position, "d= "+exchangeField.getText().toString());
+
+                    //uCalc();
 
                 }
 
@@ -368,6 +375,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         thicknessValue.setVisibility(View.VISIBLE);
         decreaseButton.setVisibility(View.VISIBLE);
         increaseButton.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void applyText(String thickness) {
+        exchangeField.setText(thickness);
+        int position = ItemPosition;
+        changeItem(position, "d= "+exchangeField.getText().toString());
     }
 }
 
