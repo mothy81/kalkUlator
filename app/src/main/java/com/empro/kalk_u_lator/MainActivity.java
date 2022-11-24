@@ -61,12 +61,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-        public void insertItem(int position)
-        {
-            mLayerList.add(position, new SingleItem(R.drawable.ic_android, "Warstwa" + (position+1), "d="+(position+1), "λ="+(position+1), "R="+(position+1)));
-            mAdapter.notifyItemInserted(position);
-        }
-
         public void removeItem(int position)
         {
             mLayerList.remove(position);
@@ -103,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
                     changeItem(position, "d= "+exchangeField.getText().toString());
+
+                    uCalc();
 
                 }
 
@@ -194,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         int position = mLayerList.size();
         rSum = 0.17;
 
-        for (int i=0; i<position+1; i++)
+        for (int i=0; i<position; i++)
         {
             String rString = (mLayerList.get(i).getText4());
             int rStringLenght = rString.length();
