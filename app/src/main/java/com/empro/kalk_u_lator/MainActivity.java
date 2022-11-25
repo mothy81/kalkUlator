@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Button layerPopUpButton;
     private Button newLayerButton;
     private TextView lambdaValue;
-    private TextView rBoxValue;
+    private Button rBoxValue;
     private EditText thicknessValue;
     private MenuItem materialMenu;
     private Menu menuValues;
@@ -126,26 +126,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     int position = mLayerList.size();
                     mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, "d= "+dValue, "λ= "+lValue, "R= "+rrValue));
                     mAdapter.notifyItemInserted(position);
-                    layerPopUpButton.setText("Wybierz materiał warstwy:");
+                    layerPopUpButton.setText("WYBIERZ MATERIAŁ WARSTWY:");
                     newLayerButton.setVisibility(View.INVISIBLE);
                     thicknessValue.setVisibility(View.INVISIBLE);
                     decreaseButton.setVisibility(View.INVISIBLE);
                     increaseButton.setVisibility(View.INVISIBLE);
 
-
-
-                    rSum = 0.17;
-
-                    for (int i=0; i<position+1; i++)
-                    {
-                    String rString = (mLayerList.get(i).getText4());
-                    int rStringLenght = rString.length();
-                    rString = rString.substring(3, rStringLenght);
-                    rSum = rSum + Double.valueOf(rString);
-                    rSum = (double) Math.round(rSum*100)/100;
-                    }
-                    rSum = (double)Math.round(1000/rSum)/1000;
-                    rBoxValue.setText("U= "+rSum.toString());
+                    uCalc();
 
                 }
             });
@@ -198,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             rSum = (double) Math.round(rSum*100)/100;
         }
         rSum = (double)Math.round(1000/rSum)/1000;
-        rBoxValue.setText("U= "+rSum.toString());
+        rBoxValue.setText("U = "+rSum.toString());
     }
 
     public void showPopUp(View v){
