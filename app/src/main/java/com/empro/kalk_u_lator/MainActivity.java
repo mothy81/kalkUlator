@@ -32,14 +32,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private MenuItem materialMenu;
     private Menu menuValues;
 
-
     private int dValue;
     private int dValue2;
     private Double lValue;
     private Double rrValue;
     private String mValue;
     private Double rSum;
-
 
     public String dStringTransfer;
     public int ItemPosition;
@@ -58,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
 
-
     }
 
         public void removeItem(int position)
@@ -71,6 +68,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         {
             mLayerList.get(position).changeText2(text);
             mAdapter.notifyItemChanged(position);
+        }
+
+        public void changeItem4(int position, String text)
+        {
+        mLayerList.get(position).changeText4(text);
+        mAdapter.notifyItemChanged(position);
+        }
+
+        public void changeItemR(int position, String text)
+        {
+        mLayerList.get(position).changeText4(text);
+        mAdapter.notifyItemChanged(position);
         }
 
         public void createLayerList()
@@ -98,16 +107,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     dStringTransfer = (mLayerList.get(position).getText2());
 
                     dialog.show(getSupportFragmentManager(), "dialog ");
-
-
-
-
                 }
 
                 @Override
                 public void onDeleteClick(int position)
                 {
-
                     removeItem(position);
                     uCalc();
                 }
@@ -190,6 +194,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
         rSum = (double)Math.round(100/rSum)/100;
         rBoxValue.setText("U = "+rSum.toString());
+    }
+
+    private void reCalc(){
+        int position = mLayerList.size();
+        lValue = Double.parseDouble(mLayerList.get(position).getText2());
+        dValue = Integer.parseInt(mLayerList.get(position).getText2());
+        rrValue = Double.parseDouble(mLayerList.get(position).getText2());
+
+
+
     }
 
     public void showPopUp(View v){
@@ -347,6 +361,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 lambdaValue.setText(item.getTooltipText());
                 layerPopUpButton.setText(item.getTitle());
                 popUpMetodsInit();
+            case R.id.materialSelf:
+
+                // TODO: 25.11.2022 zaimplementowac wlasny material
+
+                popUpMetodsInit();
                 return true;
             default: return (false);
         }
@@ -364,7 +383,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public void applyText(String thickness) {
 
         int position = ItemPosition;
+        double ltemp = Double.parseDouble(mLayerList.get(position).getText3());
+        double rtemp = Math.round(10*Double.parseDouble(thickness)/ltemp);
+        rtemp = rtemp/1000;
         changeItem(position, thickness);
+        changeItem4(position, String.valueOf(rtemp));
+        uCalc();
     }
 }
 

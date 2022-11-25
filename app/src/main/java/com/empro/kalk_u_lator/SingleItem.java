@@ -21,6 +21,11 @@ public class SingleItem {
         mtext2 = text;
     }
 
+    public void changeText4(String text)
+    {
+        mtext4 = text;
+    }
+
     public int getmImageResource()
     {
         return mImageResource;

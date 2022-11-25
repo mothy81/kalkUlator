@@ -152,6 +152,10 @@
             </menu>
         </item>
     </group>
+    <item android:title="Własny materiał"
+        android:id="@+id/materialSelf">
+
+    </item>
 
 
 </menu>
