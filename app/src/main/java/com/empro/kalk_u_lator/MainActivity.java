@@ -93,16 +93,17 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 public void onItemClick(int position) {
 
                     ItemPosition = position;
-
                     DialogWindow2 dialog = new DialogWindow2();
                     dialog.show(getSupportFragmentManager(), "dialog ");
-
 
                 }
 
                 @Override
-                public void onDeleteClick(int position) {
+                public void onDeleteClick(int position)
+                {
+
                     removeItem(position);
+                    uCalc();
                 }
             });
         }
