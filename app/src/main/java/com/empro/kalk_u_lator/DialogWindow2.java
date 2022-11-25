@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 public class DialogWindow2 extends AppCompatDialogFragment {
     private EditText exchangeValue;
     private DialogWindow2.DialogWindowListener listener;
+    private EditText test
 
     @NonNull
     @Override
