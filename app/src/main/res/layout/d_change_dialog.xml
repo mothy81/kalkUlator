@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/thicknessDialogValue"
-        android:layout_width="100dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center_horizontal"
@@ -18,5 +18,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/decreaseButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_minus"
+        app:layout_constraintEnd_toStartOf="@+id/thicknessDialogValue"
+        app:layout_constraintTop_toTopOf="@+id/thicknessDialogValue" />
+
+    <Button
+        android:id="@+id/increaseButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_plus"
+        app:layout_constraintStart_toEndOf="@+id/thicknessDialogValue"
+        app:layout_constraintTop_toTopOf="@+id/thicknessDialogValue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Menu menuValues;
 
 
-    private Double dValue;
+    private int dValue;
     private int dValue2;
     private Double lValue;
     private Double rrValue;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Double rSum;
 
 
-    public TextView exchangeField;
+    public String dStringTransfer;
     public int ItemPosition;
 
     @Override
@@ -94,7 +94,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     ItemPosition = position;
                     DialogWindow2 dialog = new DialogWindow2();
+
+                    dStringTransfer = (mLayerList.get(position).getText2());
+
                     dialog.show(getSupportFragmentManager(), "dialog ");
+
+
+
 
                 }
 
@@ -118,13 +124,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 @Override
                 public void onClick(View v) {
 
-                    dValue = Double.parseDouble(thicknessValue.getText().toString());
+                    dValue = Integer.parseInt(thicknessValue.getText().toString());
                     lValue = Double.parseDouble(lambdaValue.getText().toString());
                     rrValue = (Double.valueOf(Math.round(10*dValue/lValue)))/1000;
                     mValue = layerPopUpButton.getText().toString();
 
                     int position = mLayerList.size();
-                    mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, "d= "+dValue, "λ= "+lValue, "R= "+rrValue));
+                    mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
                     mAdapter.notifyItemInserted(position);
                     layerPopUpButton.setText("WYBIERZ MATERIAŁ WARSTWY:");
                     newLayerButton.setVisibility(View.INVISIBLE);
@@ -179,12 +185,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         for (int i=0; i<position; i++)
         {
             String rString = (mLayerList.get(i).getText4());
-            int rStringLenght = rString.length();
-            rString = rString.substring(3, rStringLenght);
             rSum = rSum + Double.valueOf(rString);
             rSum = (double) Math.round(rSum*100)/100;
         }
-        rSum = (double)Math.round(1000/rSum)/1000;
+        rSum = (double)Math.round(100/rSum)/100;
         rBoxValue.setText("U = "+rSum.toString());
     }
 
@@ -360,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public void applyText(String thickness) {
 
         int position = ItemPosition;
-        changeItem(position, "d= "+ thickness);
+        changeItem(position, thickness);
     }
 }
 

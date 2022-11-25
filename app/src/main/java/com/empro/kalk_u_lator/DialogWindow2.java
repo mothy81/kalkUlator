@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,8 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 public class DialogWindow2 extends AppCompatDialogFragment {
     private EditText exchangeValue;
     private DialogWindow2.DialogWindowListener listener;
-    private EditText test;
+    private Button increaseButton, decreaseButton;
+    private int tempo;
 
     @NonNull
     @Override
@@ -25,6 +27,35 @@ public class DialogWindow2 extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.d_change_dialog, null);
+        increaseButton = view.findViewById(R.id.increaseButton);
+        decreaseButton = view.findViewById(R.id.decreaseButton);
+
+        String dStringTransfer = ((MainActivity) getActivity()).dStringTransfer;
+        exchangeValue = view.findViewById(R.id.thicknessDialogValue);
+        tempo = (int) Math.round(Double.parseDouble(dStringTransfer));
+        exchangeValue.setText(String.valueOf(tempo));
+
+        increaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int temp2 = Integer.parseInt(exchangeValue.getText().toString());
+                exchangeValue.setText(String.valueOf(temp2+1));
+            }
+        });
+
+        decreaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int temp2 = Integer.parseInt(exchangeValue.getText().toString());
+                exchangeValue.setText(String.valueOf(temp2-1));
+            }
+        });
+
+
+
+
         builder.setView(view)
                 .setTitle("Podaj nową grubość warstwy:")
                 .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
@@ -41,7 +72,7 @@ public class DialogWindow2 extends AppCompatDialogFragment {
                         listener.applyText(thickness);
                     }
                 });
-        exchangeValue = view.findViewById(R.id.thicknessDialogValue);
+       // exchangeValue = view.findViewById(R.id.thicknessDialogValue);
 
         return builder.create();
     }
