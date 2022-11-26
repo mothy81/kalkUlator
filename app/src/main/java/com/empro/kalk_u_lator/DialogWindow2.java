@@ -58,7 +58,7 @@ public class DialogWindow2 extends AppCompatDialogFragment {
 
         builder.setView(view)
                 .setTitle("Podaj nową grubość warstwy:")
-                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                .setNegativeButton("ANULUJ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -72,7 +72,6 @@ public class DialogWindow2 extends AppCompatDialogFragment {
                         listener.applyText(thickness);
                     }
                 });
-       // exchangeValue = view.findViewById(R.id.thicknessDialogValue);
 
         return builder.create();
     }
