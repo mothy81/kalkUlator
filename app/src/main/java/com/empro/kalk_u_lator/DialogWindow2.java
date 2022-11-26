@@ -41,6 +41,9 @@ public class DialogWindow2 extends AppCompatDialogFragment {
 
                 int temp2 = Integer.parseInt(exchangeValue.getText().toString());
                 exchangeValue.setText(String.valueOf(temp2+1));
+                if (temp2>=99){
+                    exchangeValue.setText(String.valueOf(99));
+                }
             }
         });
 
@@ -50,6 +53,9 @@ public class DialogWindow2 extends AppCompatDialogFragment {
 
                 int temp2 = Integer.parseInt(exchangeValue.getText().toString());
                 exchangeValue.setText(String.valueOf(temp2-1));
+                if (temp2<=1){
+                    exchangeValue.setText(String.valueOf(1));
+                }
             }
         });
 

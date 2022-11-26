@@ -152,6 +152,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 public void onClick(View v) {
                    dValue2 = Integer.parseInt(thicknessValue.getText().toString())-1;
                    thicknessValue.setText(String.valueOf(dValue2));
+                    if (dValue2<=1)
+                    {
+                        thicknessValue.setText(String.valueOf(1));
+                    }
                 }
             });
 
@@ -160,6 +164,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 public void onClick(View v) {
                     dValue2 = Integer.parseInt(thicknessValue.getText().toString())+1;
                     thicknessValue.setText(String.valueOf(dValue2));
+                    if (dValue2>=99)
+                    {
+                        thicknessValue.setText(String.valueOf(99));
+                    }
                 }
             });
 
@@ -434,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     public void applyData(String name, String lambda) {
 
-        layerPopUpButton.setText(name);
+        layerPopUpButton.setText(name+" λ="+lambda);
         lambdaValue.setText(lambda);
 
 

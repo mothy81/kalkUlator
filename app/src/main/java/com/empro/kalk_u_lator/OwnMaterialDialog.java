@@ -63,4 +63,5 @@ public class OwnMaterialDialog extends AppCompatDialogFragment {
             throw new ClassCastException(context.toString()+"Must implement Dialog Listener");
         }
     }
+
 }
