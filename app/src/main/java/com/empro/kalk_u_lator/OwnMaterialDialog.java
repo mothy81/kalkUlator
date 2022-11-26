@@ -5,15 +5,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
-
 
 public class OwnMaterialDialog extends AppCompatDialogFragment {
 
@@ -32,7 +30,6 @@ public class OwnMaterialDialog extends AppCompatDialogFragment {
                 .setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 })
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -46,13 +43,17 @@ public class OwnMaterialDialog extends AppCompatDialogFragment {
 
         lambdaValue = view.findViewById(R.id.lambdaValue);
         nameValue = view.findViewById(R.id.nameValue);
-
+        nameValue.setFilters(new InputFilter[]{
+                new InputFilter.LengthFilter(20)
+        });
+        lambdaValue.setFilters(new InputFilter[]{
+                new InputFilter.LengthFilter(5)
+        });
             return builder.create();
     }
     public interface OwnMaterialListener{
         void applyData(String name, String lambda);
     }
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

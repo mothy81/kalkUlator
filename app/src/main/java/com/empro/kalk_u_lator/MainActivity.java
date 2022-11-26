@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         rBoxValue = findViewById(R.id.rBoxValue);
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
+
+        thicknessValue.setFilters(new InputFilter[]{
+                new InputFilter.LengthFilter(2)
+        });
 
     }
 
@@ -404,7 +409,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     initNewMaterialDialog();
 
 
-                popUpMetodsInit();
+                //popUpMetodsInit();
                 return true;
             default: return false;
         }
@@ -444,6 +449,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         layerPopUpButton.setText(name+" λ="+lambda);
         lambdaValue.setText(lambda);
+        popUpMetodsInit();
 
 
     }
