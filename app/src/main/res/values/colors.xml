@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="main">#50A5D6</color>
+    <color name="main">#919191</color>
     <color name="purple_700">#673AB7</color>
     <color name="teal_200">#495057</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF343a40</color>
     <color name="white">#222222</color>
     <color name="icons">#000000</color>
-    <color name="recycler">#D8F0FA</color>
-    <color name="margin">#B7DFF1</color>
-    <color name="singleItem">#AFD9EC</color>
+    <color name="recycler">#FFFFFF</color>
+    <color name="margin">#ececea</color>
+    <color name="singleItem">#ececea</color>
     <color name="titles">#212529</color>
-    <color name="popMenuBckgrnd">#EBF3F6</color>
-
+    <color name="popMenuBckgrnd">#F4F4F4</color>
+    <color name="u_button">#51A5D3</color>
+    <color name="u_button_text">#000000</color>
+    <color name="choose_button">#007a80</color>
+    <color name="add_button">#E7C889</color>
 
 
 </resources>

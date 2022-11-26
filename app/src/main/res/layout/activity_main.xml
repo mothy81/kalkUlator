@@ -32,7 +32,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thicknessValueEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/thicknessValueEditText"
+        android:backgroundTint="#E13131"/>
 
     <TextView
         android:id="@+id/lambdaBoxValue"
@@ -60,13 +61,14 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        android:backgroundTint="@color/choose_button"/>
 
     <Button
         android:id="@+id/thickness_decrease_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/ic_arrow_left"
+        android:background="@drawable/ic_minus"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/goToNewLayerLayout"
         app:layout_constraintEnd_toStartOf="@+id/thicknessValueEditText" />
@@ -75,7 +77,7 @@
         android:id="@+id/thickness_increase_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/ic_arrow_right"
+        android:background="@drawable/ic_plus"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/goToNewLayerLayout"
         app:layout_constraintStart_toEndOf="@+id/thicknessValueEditText" />
@@ -85,12 +87,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="U = 0.000"
-        android:textSize="20sp"
+        android:backgroundTint="@color/u_button"
+        android:text="U = 0.00"
+        android:textColor="@color/u_button_text"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/u_button"/>
 
     <EditText
         android:id="@+id/thicknessValueEditText"

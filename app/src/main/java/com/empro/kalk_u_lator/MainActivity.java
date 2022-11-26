@@ -206,7 +206,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             rSum = (double) Math.round(rSum*100)/100;
         }
         rSum = (double)Math.round(100/rSum)/100;
-        rBoxValue.setText("U = "+rSum.toString());
+        if (mLayerList.size()==0) {
+            rBoxValue.setText("U = " + "0.00");
+        } else {
+            rBoxValue.setText("U = " + rSum.toString());
+        }
     }
 
     public void showPopUp(View v){
