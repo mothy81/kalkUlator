@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/margin"
+    android:textAlignment="center"
     tools:context=".MainActivity">
 
 
@@ -27,13 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="4dp"
+        android:backgroundTint="#E13131"
         android:text="dodaj warstwę"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thicknessValueEditText"
-        android:backgroundTint="#E13131"/>
+        app:layout_constraintTop_toBottomOf="@+id/thicknessValueEditText" />
 
     <TextView
         android:id="@+id/lambdaBoxValue"
@@ -56,56 +57,61 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/choose_button"
         android:onClick="showPopUp"
         android:text="WYBIERZ MATERIAŁ WARSTWY:"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        android:backgroundTint="@color/choose_button"/>
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <Button
         android:id="@+id/thickness_decrease_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_minus"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/goToNewLayerLayout"
-        app:layout_constraintEnd_toStartOf="@+id/thicknessValueEditText" />
+        app:layout_constraintStart_toStartOf="@+id/thicknessValueEditText" />
 
     <Button
         android:id="@+id/thickness_increase_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_plus"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/goToNewLayerLayout"
-        app:layout_constraintStart_toEndOf="@+id/thicknessValueEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/thicknessValueEditText" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/rBoxValue"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="@color/u_button"
+
+        android:background="@drawable/u_button"
         android:text="U = 0.00"
         android:textColor="@color/u_button_text"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/u_button"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/thicknessValueEditText"
-        android:layout_width="60dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:layout_marginTop="4dp"
+        android:background="@drawable/d_box"
         android:ems="10"
-        android:gravity="center_horizontal"
+        android:gravity="center_horizontal|center_vertical"
         android:inputType="number"
         android:text="25"
+        android:textAlignment="center"
+        android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"

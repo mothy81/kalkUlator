@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
+    android:layout_margin="3dp"
     android:background="#225522"
     app:cardBackgroundColor="@color/singleItem"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="4dp"
-        android:background="@color/singleItem"
+        android:layout_height="56dp"
+        android:layout_margin="0dp"
+        android:background="@drawable/custom_border"
         android:gravity="center_vertical">
 
         <ImageView
@@ -46,13 +46,14 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/dLabel"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/dLabel" />
 
         <TextView
             android:id="@+id/dLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="3dp"
             android:text="d="
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -67,7 +68,7 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/lLabel"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/lLabel" />
 
         <TextView
             android:id="@+id/lLabel"
@@ -78,7 +79,7 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toStartOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/dLabel"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/dLabel" />
 
         <TextView
             android:id="@+id/textView4"
@@ -88,7 +89,7 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/rLabel"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/rLabel" />
 
         <TextView
             android:id="@+id/rLabel"
@@ -99,7 +100,7 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/image_delete"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/lLabel" />
 
         <ImageView
             android:id="@+id/image_delete"
