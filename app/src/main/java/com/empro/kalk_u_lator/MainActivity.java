@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -130,22 +131,31 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 @Override
                 public void onClick(View v) {
 
-                    dValue = Integer.parseInt(thicknessValue.getText().toString());
-                    lValue = Double.parseDouble(lambdaValue.getText().toString());
-                    rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
-                    mValue = layerPopUpButton.getText().toString();
-
                     int position = mLayerList.size();
-                    mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
-                    mAdapter.notifyItemInserted(position);
-                    layerPopUpButton.setText(R.string.add_layer_title);
-                    newLayerButton.setVisibility(View.INVISIBLE);
-                    thicknessValue.setVisibility(View.INVISIBLE);
-                    decreaseButton.setVisibility(View.INVISIBLE);
-                    increaseButton.setVisibility(View.INVISIBLE);
 
-                    uCalc();
-
+                    if (lambdaValue.getText().toString().length()==0)
+                    {
+                        Toast.makeText(getApplicationContext(), "λ NIE MOŻE BYĆ RÓWNA  0!", Toast.LENGTH_LONG).show();
+                    } else
+                    {
+                        if (Double.valueOf(lambdaValue.getText().toString())==0)
+                        {
+                            Toast.makeText(getApplicationContext(), "λ NIE MOŻE BYĆ RÓWNA 0!", Toast.LENGTH_LONG).show();
+                        } else {
+                                dValue = Integer.parseInt(thicknessValue.getText().toString());
+                                lValue = Double.parseDouble(lambdaValue.getText().toString());
+                                rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
+                                mValue = layerPopUpButton.getText().toString();
+                                mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
+                                mAdapter.notifyItemInserted(position);
+                                layerPopUpButton.setText(R.string.add_layer_title);
+                                newLayerButton.setVisibility(View.INVISIBLE);
+                                thicknessValue.setVisibility(View.INVISIBLE);
+                                decreaseButton.setVisibility(View.INVISIBLE);
+                                increaseButton.setVisibility(View.INVISIBLE);
+                                uCalc();
+                                    }
+                        }
                 }
             });
 
