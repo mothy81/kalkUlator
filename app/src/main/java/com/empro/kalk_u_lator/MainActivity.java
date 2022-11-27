@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                                 uCalc();
                                     }
                         }
+
                 }
             });
 
@@ -234,7 +235,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         switch (item.getItemId()){
             case R.id.material11:
-            case R.id.material54:
             case R.id.material12:
             case R.id.material13:
             case R.id.material14:
@@ -249,13 +249,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material113:
             case R.id.material114:
             case R.id.material115:
+            case R.id.material116:
+            case R.id.material117:
             case R.id.material21:
             case R.id.material22:
+            case R.id.material23:
             case R.id.material31:
             case R.id.material32:
             case R.id.material33:
             case R.id.material34:
             case R.id.material35:
+            case R.id.material36:
+            case R.id.material37:
             case R.id.material41:
             case R.id.material42:
             case R.id.material43:
@@ -270,6 +275,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material51:
             case R.id.material52:
             case R.id.material53:
+            case R.id.material54:
+            case R.id.material55:
                 lambdaValue.setText(item.getTooltipText());
                 layerPopUpButton.setText(item.getTitle());
                 popUpMetodsInit();

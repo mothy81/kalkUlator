@@ -16,8 +16,8 @@
         android:title="Beton zwykły 1900kg/m3"
         android:tooltipText="1.0"/>
     <item android:id="@+id/material14"
-        android:title="Żelbet"
-        android:tooltipText="1.7"/>
+        android:title="Żelbet (1% zbrojenia)"
+        android:tooltipText="2.3"/>
     <item android:id="@+id/material15"
         android:title="Marmur, granit"
         android:tooltipText="3.5"/>
@@ -25,32 +25,39 @@
         android:title="Piaskowiec"
         android:tooltipText="2.2"/>
     <item android:id="@+id/material17"
+        android:title="Mur z gazobetonu kl. 400"
+        android:tooltipText="0.14"/>
+    <item android:id="@+id/material18"
         android:title="Mur z gazobetonu kl. 500"
         android:tooltipText="0.17"/>
-    <item android:id="@+id/material18"
+    <item android:id="@+id/material19"
         android:title="Mur z gazobetonu kl. 600"
         android:tooltipText="0.21"/>
-    <item android:id="@+id/material19"
+    <item android:id="@+id/material110"
         android:title="Mur z gazobetonu kl. 700"
         android:tooltipText="0.25"/>
-    <item android:id="@+id/material110"
+    <item android:id="@+id/material111"
         android:title="Mur z gazobetonu kl. 800"
         android:tooltipText="0.29"/>
-    <item android:id="@+id/material111"
+    <item android:id="@+id/material112"
         android:title="Mur z cegły ceramicznej"
         android:tooltipText="0.77"/>
-    <item android:id="@+id/material112"
-        android:title="Mur z cegły dziurawki"
-        android:tooltipText="0.64"/>
     <item android:id="@+id/material113"
+        android:title="Mur z cegły dziurawki"
+        android:tooltipText="0.62"/>
+    <item android:id="@+id/material114"
         android:title="Mur z cegły klinkierowej"
         android:tooltipText="1.05"/>
-    <item android:id="@+id/material114"
+    <item android:id="@+id/material115"
         android:title="Mur z bl. silikatowych drążonych"
         android:tooltipText="0.8"/>
-    <item android:id="@+id/material115"
+    <item android:id="@+id/material116"
         android:title="Mur z bl. silikatowych pełnych"
         android:tooltipText="0.9"/>
+    <item android:id="@+id/material117"
+        android:title="Mur z pustaków POROTON"
+        android:tooltipText="0.24"/>
+
 </menu>
         </item>
     </group>
@@ -64,6 +71,9 @@
         android:tooltipText="0.23"/>
     <item android:id="@+id/material22"
         android:title="Bloki z gipsu"
+        android:tooltipText="0.35"/>
+            <item android:id="@+id/material23"
+        android:title="Gazogips"
         android:tooltipText="0.35"/>
         </menu>
     </item>
@@ -87,6 +97,12 @@
                     android:tooltipText="0.4"/>
                 <item android:id="@+id/material35"
                     android:title="Płyta OSB"
+                    android:tooltipText="0.13"/>
+                <item android:id="@+id/material36"
+                    android:title="Płyta MDF (800)"
+                    android:tooltipText="0.19"/>
+                <item android:id="@+id/material37"
+                    android:title="Sklejka"
                     android:tooltipText="0.16"/>
             </menu>
         </item>
@@ -128,7 +144,7 @@
                     android:tooltipText="0.023"/>
                 <item android:id="@+id/material411"
                     android:title="Nieruchoma warstwa powietrza"
-                    android:tooltipText="0.02"/>
+                    android:tooltipText="0.025"/>
             </menu>
         </item>
     </group>
@@ -147,6 +163,9 @@
                     android:title="Tynk wapienny"
                     android:tooltipText="0.7"/>
                 <item android:id="@+id/material54"
+                    android:title="Tynk gipsowy lekki"
+                    android:tooltipText="0.4"/>
+                <item android:id="@+id/material55"
                     android:title="Tynk cienkowarstwowy"
                     android:tooltipText="0.7"/>
             </menu>
