@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                                 lValue = Double.parseDouble(lambdaValue.getText().toString());
                                 rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
                                 mValue = layerPopUpButton.getText().toString();
-                                mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
+                                mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
                                 mAdapter.notifyItemInserted(position);
                                 layerPopUpButton.setText(R.string.add_layer_title);
                                 newLayerButton.setVisibility(View.INVISIBLE);
