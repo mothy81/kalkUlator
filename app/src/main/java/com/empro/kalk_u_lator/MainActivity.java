@@ -84,12 +84,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         mAdapter.notifyItemChanged(position);
         }
 
-        public void changeItemR(int position, String text)
-        {
-        mLayerList.get(position).changeText4(text);
-        mAdapter.notifyItemChanged(position);
-        }
-
         public void createLayerList()
         {
             mLayerList = new ArrayList<>();
@@ -138,13 +132,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     dValue = Integer.parseInt(thicknessValue.getText().toString());
                     lValue = Double.parseDouble(lambdaValue.getText().toString());
-                    rrValue = (Double.valueOf(Math.round(10*dValue/lValue)))/1000;
+                    rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
                     mValue = layerPopUpButton.getText().toString();
 
                     int position = mLayerList.size();
                     mLayerList.add(position, new SingleItem(R.drawable.ic_android, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
                     mAdapter.notifyItemInserted(position);
-                    layerPopUpButton.setText("WYBIERZ MATERIAŁ WARSTWY:");
+                    layerPopUpButton.setText(R.string.add_layer_title);
                     newLayerButton.setVisibility(View.INVISIBLE);
                     thicknessValue.setVisibility(View.INVISIBLE);
                     decreaseButton.setVisibility(View.INVISIBLE);
@@ -205,14 +199,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         for (int i=0; i<position; i++)
         {
             String rString = (mLayerList.get(i).getText4());
-            rSum = rSum + Double.valueOf(rString);
+            rSum = rSum + Double.parseDouble(rString);
             rSum = (double) Math.round(rSum*100)/100;
         }
         rSum = (double)Math.round(100/rSum)/100;
         if (mLayerList.size()==0) {
             rBoxValue.setText("U = " + "0.00");
         } else {
-            rBoxValue.setText("U = " + rSum.toString());
+            rBoxValue.setText("U = " + rSum);
         }
     }
 
@@ -222,6 +216,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.inflate(R.menu.popup_menu);
         popup.show();
         menuValues = popup.getMenu();
+        layerPopUpButton.setText("WYBIERZ MATERIAŁ:");
     }
 
     @Override
@@ -230,197 +225,50 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         switch (item.getItemId()){
             case R.id.material11:
             case R.id.material54:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material12:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material13:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material14:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material15:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material16:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material17:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material18:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material19:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material110:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material111:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material112:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material113:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material114:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material115:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material21:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material22:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material31:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material32:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material33:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material34:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material35:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material41:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material42:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material43:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material44:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material45:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material46:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material47:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material48:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material49:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material410:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material411:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material51:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material52:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                return true;
             case R.id.material53:
                 lambdaValue.setText(item.getTooltipText());
                 layerPopUpButton.setText(item.getTitle());
                 popUpMetodsInit();
                 return true;
             case R.id.material6:
-
-                // TODO: 25.11.2022 zaimplementowac wlasny material
-
                     initNewMaterialDialog();
-
-
-                //popUpMetodsInit();
                 return true;
             default: return false;
         }
-
     }
 
     private void initNewMaterialDialog() {
@@ -436,7 +284,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         thicknessValue.setVisibility(View.VISIBLE);
         decreaseButton.setVisibility(View.VISIBLE);
         increaseButton.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -457,8 +304,5 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         layerPopUpButton.setText(name+" λ="+lambda);
         lambdaValue.setText(lambda);
         popUpMetodsInit();
-
-
     }
 }
-

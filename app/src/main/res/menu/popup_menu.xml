@@ -46,10 +46,10 @@
         android:title="Mur z cegły klinkierowej"
         android:tooltipText="1.05"/>
     <item android:id="@+id/material114"
-        android:title="Mur z bloków silikatowych drążonych"
+        android:title="Mur z bl. silikatowych drążonych"
         android:tooltipText="0.8"/>
     <item android:id="@+id/material115"
-        android:title="Mur z bloków silikatowych pełnych"
+        android:title="Mur z bl. silikatowych pełnych"
         android:tooltipText="0.9"/>
 </menu>
         </item>

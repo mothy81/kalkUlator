@@ -5,6 +5,8 @@
 
     <solid android:color="@color/d_box" />
     <corners android:radius="25dp"/>
+    <stroke android:width="1dp"
+        android:color="@color/choose_button"/>
 
 
 </shape>
