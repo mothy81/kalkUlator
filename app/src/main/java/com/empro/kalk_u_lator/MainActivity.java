@@ -2,6 +2,8 @@ package com.empro.kalk_u_lator;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +17,8 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private EditText thicknessValue;
     private MenuItem materialMenu;
     private Menu menuValues;
+    private FloatingActionButton fabmenu, fabmenu1, fabmenu2, fabmenu3;
 
     private int dValue;
     private int dValue2;
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private String mValue;
     private Double rSum;
 
+    boolean isFabOpen = false;
     public String dStringTransfer;
     public int ItemPosition;
 
@@ -52,14 +58,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         actionBar.hide();
         setContentView(R.layout.activity_main);
 
-        createLayerList();
-        buildRecyclerView();
-        setButtons();
-
         lambdaValue = findViewById(R.id.lambdaBoxValue);
         rBoxValue = findViewById(R.id.rBoxValue);
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
+        fabmenu = findViewById(R.id.fab_menu);
+        fabmenu1 = findViewById(R.id.fab_menu1);
+        fabmenu2 = findViewById(R.id.fab_menu2);
+        fabmenu3 = findViewById(R.id.fab_menu3);
+
+
+        createLayerList();
+        buildRecyclerView();
+        setButtons();
 
         thicknessValue.setFilters(new InputFilter[]{
                 new InputFilter.LengthFilter(2)
@@ -127,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             decreaseButton = findViewById(R.id.thickness_decrease_button);
             increaseButton = findViewById(R.id.thickness_increase_button);
 
+
             newLayerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -172,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 }
             });
 
+
             increaseButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -201,7 +214,35 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     return false;
                 }
             });
+
+            fabmenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!isFabOpen) {
+                        showFabMenu();
+                    } else {
+                        closeFabMenu();
+                    }
+                }
+            });
+
         }
+
+    private void closeFabMenu()
+    {
+        isFabOpen = false;
+        fabmenu1.animate().translationY(0);
+        fabmenu2.animate().translationY(0);
+        fabmenu3.animate().translationY(0);
+    }
+
+    private void showFabMenu()
+    {
+        isFabOpen = true;
+        fabmenu1.animate().translationY(-150);
+        fabmenu2.animate().translationY(-300);
+        fabmenu3.animate().translationY(-450);
+    }
 
     private void uCalc() {
         int position = mLayerList.size();
@@ -228,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.show();
         menuValues = popup.getMenu();
         layerPopUpButton.setText("WYBIERZ MATERIAŁ:");
+        //layerPopUpButton.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.custom_border2, null));
     }
 
     @Override
@@ -301,6 +343,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         thicknessValue.setVisibility(View.VISIBLE);
         decreaseButton.setVisibility(View.VISIBLE);
         increaseButton.setVisibility(View.VISIBLE);
+
     }
 
     @Override
