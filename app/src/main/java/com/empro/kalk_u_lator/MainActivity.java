@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         rBoxValue = findViewById(R.id.rBoxValue);
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
-        fabmenu = findViewById(R.id.fab_menu);
         fabmenu1 = findViewById(R.id.fab_menu1);
         fabmenu2 = findViewById(R.id.fab_menu2);
         fabmenu3 = findViewById(R.id.fab_menu3);
@@ -71,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         createLayerList();
         buildRecyclerView();
         setButtons();
+        showFabMenu();
 
         thicknessValue.setFilters(new InputFilter[]{
                 new InputFilter.LengthFilter(2)
@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-        public void removeItem(int position)
+
+    public void removeItem(int position)
         {
             mLayerList.remove(position);
             mAdapter.notifyItemRemoved(position);
@@ -215,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 }
             });
 
-            fabmenu.setOnClickListener(new View.OnClickListener() {
+            rBoxValue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (!isFabOpen) {
@@ -231,17 +232,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private void closeFabMenu()
     {
         isFabOpen = false;
-        fabmenu1.animate().translationY(0);
-        fabmenu2.animate().translationY(0);
-        fabmenu3.animate().translationY(0);
+        int x1 = rBoxValue.getWidth();
+        fabmenu1.animate().translationX(x1);
+        fabmenu2.animate().translationX(x1);
+        fabmenu3.animate().translationX(-x1);
     }
 
     private void showFabMenu()
     {
         isFabOpen = true;
-        fabmenu1.animate().translationY(-150);
-        fabmenu2.animate().translationY(-300);
-        fabmenu3.animate().translationY(-450);
+        fabmenu1.animate().translationX(0);
+        fabmenu2.animate().translationX(0);
+        fabmenu3.animate().translationX(0);
     }
 
     private void uCalc() {
