@@ -2,11 +2,10 @@ package com.empro.kalk_u_lator;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.Menu;
@@ -19,7 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DialogWindow2.DialogWindowListener, OwnMaterialDialog.OwnMaterialListener {
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private EditText thicknessValue;
     private MenuItem materialMenu;
     private Menu menuValues;
-    private FloatingActionButton fabmenu, fabmenu1, fabmenu2, fabmenu3;
+    private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
 
     private int dValue;
     private int dValue2;
@@ -66,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         fabmenu2 = findViewById(R.id.fab_menu2);
         fabmenu3 = findViewById(R.id.fab_menu3);
 
-
         createLayerList();
         buildRecyclerView();
         setButtons();
@@ -78,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-
-    public void removeItem(int position)
+        public void removeItem(int position)
         {
             mLayerList.remove(position);
             mAdapter.notifyItemRemoved(position);
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         public void createLayerList()
         {
+
             mLayerList = new ArrayList<>();
 
         }
@@ -139,6 +141,40 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             decreaseButton = findViewById(R.id.thickness_decrease_button);
             increaseButton = findViewById(R.id.thickness_increase_button);
 
+            fabmenu1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    saveData();
+                    showFabMenu();
+                }
+            });
+
+            fabmenu2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    loadData();
+                    int tempj = mLayerList.size();
+                    for (int j=0; j<tempj; j++){
+                        mAdapter.notifyItemInserted(j);
+                        uCalc();
+                    }
+
+
+                }
+            });
+
+            fabmenu3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int tempj = mLayerList.size();
+                    for (int j=0; j<tempj; j++){
+                        mLayerList.remove(0);
+                        mAdapter.notifyItemRemoved(0);
+                        uCalc();
+                    }
+                    showFabMenu();
+                }
+            });
 
             newLayerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -229,6 +265,29 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         }
 
+    private void saveData()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(mLayerList);
+        editor.putString("task list", json);
+        editor.apply();
+    }
+
+    private void loadData()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("task list", null);
+        Type type = new TypeToken<ArrayList<SingleItem>>() {}.getType();
+        mLayerList = gson.fromJson(json, type);
+
+       if (mLayerList == null){
+           mLayerList = new ArrayList<>();
+        }
+    }
+
     private void closeFabMenu()
     {
         isFabOpen = false;
@@ -271,7 +330,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.show();
         menuValues = popup.getMenu();
         layerPopUpButton.setText("WYBIERZ MATERIAŁ:");
-        //layerPopUpButton.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.custom_border2, null));
+        newLayerButton.setVisibility(View.INVISIBLE);
+        thicknessValue.setVisibility(View.INVISIBLE);
+        decreaseButton.setVisibility(View.INVISIBLE);
+        increaseButton.setVisibility(View.INVISIBLE);
+
     }
 
     @Override

@@ -48,6 +48,16 @@
             app:layout_constraintTop_toTopOf="@+id/dLabel" />
 
         <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/dLabel" />
+
+        <TextView
             android:id="@+id/dLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
