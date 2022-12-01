@@ -238,7 +238,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                                 uCalc();
                                     }
                         }
-
                 }
             });
 
@@ -253,7 +252,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     }
                 }
             });
-
 
             increaseButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -322,16 +320,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void loadData()
     {
+        clearAll();
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("task list", null);
+        Type type = new TypeToken<ArrayList<SingleItem>>() {
+        }.getType();
+        savedLayerList = gson.fromJson(json, type);
+
         if (savedLayerList == null){
             showToast("NIE ZAPISANO UKŁADU WARSTW");
         } else {
-            clearAll();
-            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-            Gson gson = new Gson();
-            String json = sharedPreferences.getString("task list", null);
-            Type type = new TypeToken<ArrayList<SingleItem>>() {
-            }.getType();
-            savedLayerList = gson.fromJson(json, type);
+
 
             int j = savedLayerList.size();
             for (int i = 0; i < j; i++) {
@@ -467,6 +467,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         thicknessValue.setVisibility(View.VISIBLE);
         decreaseButton.setVisibility(View.VISIBLE);
         increaseButton.setVisibility(View.VISIBLE);
+        //layerPopUpButton.setb
 
     }
 
