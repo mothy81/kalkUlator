@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
@@ -87,6 +90,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
+
+    }
+
+    void showToast(String text){
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_root));
+        TextView toastText = layout.findViewById(R.id.toastText);
+        toastText.setText(text);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
 
     }
 
@@ -201,12 +217,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     if (lambdaValue.getText().toString().length()==0)
                     {
-                        Toast.makeText(getApplicationContext(), "λ NIE MOŻE BYĆ RÓWNA  0!", Toast.LENGTH_LONG).show();
+                        showToast("λ NIE MOŻE BYĆ RÓWNA  0!");
                     } else
                     {
                         if (Double.valueOf(lambdaValue.getText().toString())==0)
                         {
-                            Toast.makeText(getApplicationContext(), "λ NIE MOŻE BYĆ RÓWNA 0!", Toast.LENGTH_LONG).show();
+                            showToast("λ NIE MOŻE BYĆ RÓWNA  0!");
                         } else {
                                 dValue = Integer.parseInt(thicknessValue.getText().toString());
                                 lValue = Double.parseDouble(lambdaValue.getText().toString());
@@ -300,14 +316,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         String json = gson.toJson(mLayerList);
         editor.putString("task list", json);
         editor.apply();
-        Toast.makeText(getApplicationContext(), "ZAPISANO UKŁAD WARSTW", Toast.LENGTH_LONG).show();
+        showToast("Zapisano układ warstw");
         savedLayerList = new ArrayList<>();
     }
 
     private void loadData()
     {
         if (savedLayerList == null){
-            Toast.makeText(getApplicationContext(), "NIE ZAPISANO UKŁADU WARSTW", Toast.LENGTH_LONG).show();
+            showToast("NIE ZAPISANO UKŁADU WARSTW");
         } else {
             clearAll();
             SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
