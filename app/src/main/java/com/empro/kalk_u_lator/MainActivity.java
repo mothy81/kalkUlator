@@ -1,7 +1,9 @@
 package com.empro.kalk_u_lator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DialogWindow2.DialogWindowListener, OwnMaterialDialog.OwnMaterialListener {
 
@@ -81,7 +85,29 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 new InputFilter.LengthFilter(2)
         });
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
+
     }
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START| ItemTouchHelper.END, 0) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+
+            int fromPosition = viewHolder.getAdapterPosition();
+            int targetPosition = target.getAdapterPosition();
+            Collections.swap(mLayerList, fromPosition, targetPosition);
+            mRecyclerView.getAdapter().notifyItemMoved(fromPosition, targetPosition);
+
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+        }
+    };
+
 
         public void removeItem(int position)
         {
@@ -156,12 +182,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 @Override
                 public void onClick(View v) {
                     loadData();
-                    int tempj = mLayerList.size();
-                    for (int j=0; j<tempj; j++){
-                        mAdapter.notifyItemInserted(j);
-                        uCalc();
-                    }
-
 
                 }
             });
@@ -281,31 +301,34 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         editor.putString("task list", json);
         editor.apply();
         Toast.makeText(getApplicationContext(), "ZAPISANO UKŁAD WARSTW", Toast.LENGTH_LONG).show();
+        savedLayerList = new ArrayList<>();
     }
 
     private void loadData()
     {
         if (savedLayerList == null){
-        savedLayerList = new ArrayList<>();
-        }
-        clearAll();
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("task list", null);
-        Type type = new TypeToken<ArrayList<SingleItem>>() {}.getType();
-        savedLayerList = gson.fromJson(json, type);
+            Toast.makeText(getApplicationContext(), "NIE ZAPISANO UKŁADU WARSTW", Toast.LENGTH_LONG).show();
+        } else {
+            clearAll();
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            Gson gson = new Gson();
+            String json = sharedPreferences.getString("task list", null);
+            Type type = new TypeToken<ArrayList<SingleItem>>() {
+            }.getType();
+            savedLayerList = gson.fromJson(json, type);
 
-        int j = savedLayerList.size();
-        for (int i=0; i<j; i++){
-            String text1temp = savedLayerList.get(i).getText1();
-            String text2temp = savedLayerList.get(i).getText2();
-            String text3temp = savedLayerList.get(i).getText3();
-            String text4temp = savedLayerList.get(i).getText4();
-            mLayerList.add(i, new SingleItem(R.drawable.ic_baseline_equalizer_24, text1temp, text2temp, text3temp, text4temp));
-            mAdapter.notifyItemInserted(i);
+            int j = savedLayerList.size();
+            for (int i = 0; i < j; i++) {
+                String text1temp = savedLayerList.get(i).getText1();
+                String text2temp = savedLayerList.get(i).getText2();
+                String text3temp = savedLayerList.get(i).getText3();
+                String text4temp = savedLayerList.get(i).getText4();
+                mLayerList.add(i, new SingleItem(R.drawable.ic_baseline_equalizer_24, text1temp, text2temp, text3temp, text4temp));
+                mAdapter.notifyItemInserted(i);
+            }
+            uCalc();
+            showFabMenu();
         }
-        uCalc();
-        showFabMenu();
     }
 
     private void closeFabMenu()
