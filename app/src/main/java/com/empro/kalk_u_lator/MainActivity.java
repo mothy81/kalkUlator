@@ -306,10 +306,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
         uCalc();
         showFabMenu();
-
-
-
-
     }
 
     private void closeFabMenu()
