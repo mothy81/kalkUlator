@@ -28,6 +28,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DialogWindow2.DialogWindowListener, OwnMaterialDialog.OwnMaterialListener {
 
     private ArrayList<SingleItem> mLayerList;
+    private ArrayList<SingleItem> savedLayerList;
+
     private RecyclerView mRecyclerView;
     private LayerAdapter mAdapter;
     private RecyclerView.LayoutManager mlayoutManager;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     boolean isFabOpen = false;
     public String dStringTransfer;
     public int ItemPosition;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,13 +169,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             fabmenu3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int tempj = mLayerList.size();
-                    for (int j=0; j<tempj; j++){
-                        mLayerList.remove(0);
-                        mAdapter.notifyItemRemoved(0);
-                        uCalc();
-                    }
-                    showFabMenu();
+                    clearAll();
                 }
             });
 
@@ -265,6 +262,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         }
 
+    private void clearAll() {
+        int tempj = mLayerList.size();
+        for (int j=0; j<tempj; j++){
+            mLayerList.remove(0);
+            mAdapter.notifyItemRemoved(0);
+            uCalc();
+        }
+        showFabMenu();
+    }
+
     private void saveData()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -273,19 +280,36 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         String json = gson.toJson(mLayerList);
         editor.putString("task list", json);
         editor.apply();
+        Toast.makeText(getApplicationContext(), "ZAPISANO UKŁAD WARSTW", Toast.LENGTH_LONG).show();
     }
 
     private void loadData()
     {
+        if (savedLayerList == null){
+        savedLayerList = new ArrayList<>();
+        }
+        clearAll();
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<SingleItem>>() {}.getType();
-        mLayerList = gson.fromJson(json, type);
+        savedLayerList = gson.fromJson(json, type);
 
-       if (mLayerList == null){
-           mLayerList = new ArrayList<>();
+        int j = savedLayerList.size();
+        for (int i=0; i<j; i++){
+            String text1temp = savedLayerList.get(i).getText1();
+            String text2temp = savedLayerList.get(i).getText2();
+            String text3temp = savedLayerList.get(i).getText3();
+            String text4temp = savedLayerList.get(i).getText4();
+            mLayerList.add(i, new SingleItem(R.drawable.ic_baseline_equalizer_24, text1temp, text2temp, text3temp, text4temp));
+            mAdapter.notifyItemInserted(i);
         }
+        uCalc();
+        showFabMenu();
+
+
+
+
     }
 
     private void closeFabMenu()
