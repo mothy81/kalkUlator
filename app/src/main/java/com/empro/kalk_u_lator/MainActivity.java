@@ -313,14 +313,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void saveData()
     {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(mLayerList);
-        editor.putString("task list", json);
-        editor.apply();
-        showToast("Zapisano układ warstw");
-        savedLayerList = new ArrayList<>();
+        if (mLayerList.size()==0){
+            showToast("Brak danych do zapisania");
+        }else {
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(mLayerList);
+            editor.putString("task list", json);
+            editor.apply();
+            showToast("Zapisano układ warstw");
+            savedLayerList = new ArrayList<>();
+        }
     }
 
     private void loadData()
