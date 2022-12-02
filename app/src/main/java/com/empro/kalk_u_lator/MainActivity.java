@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.Gravity;
@@ -26,10 +28,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DialogWindow2.DialogWindowListener, OwnMaterialDialog.OwnMaterialListener {
@@ -217,13 +217,17 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     if (lambdaValue.getText().toString().length()==0)
                     {
-                        showToast("λ NIE MOŻE BYĆ RÓWNA  0!");
+                        showToast("λ NIE MOŻE BYĆ RÓWNA 0!");
                     } else
                     {
                         if (Double.valueOf(lambdaValue.getText().toString())==0)
                         {
-                            showToast("λ NIE MOŻE BYĆ RÓWNA  0!");
+                            showToast("λ NIE MOŻE BYĆ RÓWNA 0!");
                         } else {
+
+                            if (thicknessValue.getText().length()==0){
+                                thicknessValue.setText("1");
+                            }
                                 dValue = Integer.parseInt(thicknessValue.getText().toString());
                                 lValue = Double.parseDouble(lambdaValue.getText().toString());
                                 rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
@@ -235,6 +239,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                                 thicknessValue.setVisibility(View.INVISIBLE);
                                 decreaseButton.setVisibility(View.INVISIBLE);
                                 increaseButton.setVisibility(View.INVISIBLE);
+                                layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
                                 uCalc();
                                     }
                         }
@@ -320,7 +325,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void loadData()
     {
-        clearAll();
+
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
@@ -332,7 +337,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             showToast("NIE ZAPISANO UKŁADU WARSTW");
         } else {
 
-
+            clearAll();
             int j = savedLayerList.size();
             for (int i = 0; i < j; i++) {
                 String text1temp = savedLayerList.get(i).getText1();
@@ -389,6 +394,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.show();
         menuValues = popup.getMenu();
         layerPopUpButton.setText("WYBIERZ MATERIAŁ:");
+        layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
         newLayerButton.setVisibility(View.INVISIBLE);
         thicknessValue.setVisibility(View.INVISIBLE);
         decreaseButton.setVisibility(View.INVISIBLE);
@@ -462,12 +468,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     private void popUpMetodsInit() {
-
         newLayerButton.setVisibility(View.VISIBLE);
         thicknessValue.setVisibility(View.VISIBLE);
         decreaseButton.setVisibility(View.VISIBLE);
         increaseButton.setVisibility(View.VISIBLE);
-        //layerPopUpButton.setb
+        layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(235, 243, 251)));
 
     }
 

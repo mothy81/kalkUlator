@@ -74,6 +74,9 @@ public class DialogWindow2 extends AppCompatDialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if (exchangeValue.getText().toString().length()==0){
+                            exchangeValue.setText("1");
+                        }
                         String thickness = exchangeValue.getText().toString();
                         listener.applyText(thickness);
                     }
