@@ -44,7 +44,7 @@ public class OwnMaterialDialog extends AppCompatDialogFragment {
         lambdaValue = view.findViewById(R.id.lambdaValue);
         nameValue = view.findViewById(R.id.nameValue);
         nameValue.setFilters(new InputFilter[]{
-                new InputFilter.LengthFilter(20)
+                new InputFilter.LengthFilter(18)
         });
         lambdaValue.setFilters(new InputFilter[]{
                 new InputFilter.LengthFilter(5)

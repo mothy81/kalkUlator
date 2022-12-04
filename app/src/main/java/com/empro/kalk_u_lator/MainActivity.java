@@ -14,10 +14,8 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
@@ -48,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private TextView lambdaValue;
     private Button rBoxValue;
     private EditText thicknessValue;
-    private MenuItem materialMenu;
-    private Menu menuValues;
+    //private MenuItem materialMenu;
+    //private Menu menuValues;
     private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
 
     private int dValue;
@@ -95,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     void showToastBlue(String text){
         LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_root));
+        View layout = inflater.inflate(R.layout.toast_layout, findViewById(R.id.toast_root));
         TextView toastText = layout.findViewById(R.id.toastText);
         toastText.setText(text);
         Toast toast = new Toast(getApplicationContext());
@@ -107,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
     void showToastRed(String text){
         LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast_layout_red, (ViewGroup) findViewById(R.id.toast_root));
+        View layout = inflater.inflate(R.layout.toast_layout_red, findViewById(R.id.toast_root));
         TextView toastText = layout.findViewById(R.id.toastText);
         toastText.setText(text);
         Toast toast = new Toast(getApplicationContext());
@@ -169,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             mAdapter = new LayerAdapter(mLayerList);
             mRecyclerView.setLayoutManager(mlayoutManager);
             mRecyclerView.setAdapter(mAdapter);
-            materialMenu = findViewById(R.id.material11);
+            //materialMenu = findViewById(R.id.material11);
 
             mAdapter.setOnItemClickListener(new LayerAdapter.OnItemClickListener() {
                 @Override
@@ -408,7 +406,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.popup_menu);
         popup.show();
-        menuValues = popup.getMenu();
+        //menuValues = popup.getMenu();
         layerPopUpButton.setText("WYBIERZ MATERIAŁ:");
         layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
         newLayerButton.setVisibility(View.INVISIBLE);
