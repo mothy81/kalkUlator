@@ -8,4 +8,63 @@
     <string name="enter_layer_thickness">Wprowadź grubość</string>
     <string name="enter_R">podaj R</string>
     <string name="add_layer_title">DODAJ WARSTWĘ:</string>
+    <string name="no_save_data">BRAK DANYCH DO ZAPISANIA</string>
+    <string name="saved_layers_state">ZAPISANO UKŁAD WARSTW</string>
+    <string name="no_saved_data">NIE ZAPISANO UKŁADU WARSTW</string>
+    <string name="lambda_0">λ NIE MOŻE BYĆ RÓWNA 0!</string>
+    <string name="constr_materials">Materiały konstrukcyjne</string>
+    <string name="concrete_2400">Beton zwykły 2400kg/m3</string>
+    <string name="concrete_2200">Beton zwykły 2200kg/m3</string>
+    <string name="concrete_1900">Beton zwykły 1900kg/m3</string>
+    <string name="reinforced_concrete">Żelbet (1% zbrojenia)</string>
+    <string name="cobblestone">Marmur, granit</string>
+    <string name="sandstone">Piaskowiec</string>
+    <string name="cell_concrete_400">Mur z gazobetonu kl. 400</string>
+    <string name="cell_concrete_500">Mur z gazobetonu kl. 500</string>
+    <string name="cell_concrete_600">Mur z gazobetonu kl. 600</string>
+    <string name="cell_concrete_700">Mur z gazobetonu kl. 700</string>
+    <string name="cell_concrete_800">Mur z gazobetonu kl. 800</string>
+    <string name="brick_wall">Mur z cegły ceramicznej</string>
+    <string name="holedbrick_wall">Mur z cegły dziurawki</string>
+    <string name="mur_z_cegly_klinkierowej">Mur z cegły klinkierowej</string>
+    <string name="mur_z_bl_silikatowych_drazonych">Mur z bl. silikatowych drążonych</string>
+    <string name="mur_z_bl_silikatowych_pelnych">Mur z bl. silikatowych pełnych</string>
+    <string name="mur_z_pustakow_poroton">Mur z pustaków POROTON</string>
+    <string name="gipsy_i_wyroby_gipsowe">Gipsy i wyroby gipsowe</string>
+    <string name="plyty_gipsowo_kartonowe">Płyty gipsowo-kartonowe</string>
+    <string name="bloki_z_gipsu">Bloki z gipsu</string>
+    <string name="gazogips">Gazogips</string>
+    <string name="drewno_i_mat_drewnopochodne">Drewno i mat. drewnopochodne</string>
+    <string name="sosna_wierk_w_poprzek_w_kien">Sosna, świerk w poprzek włókien</string>
+    <string name="sosna_swierk_wzdluz_w_kien">Sosna, świerk wzdłuż włókien</string>
+    <string name="dab_buk_w_poprzek_wlokien">Dąb, buk w poprzek włókien</string>
+    <string name="dab_buk_wzdluz_wlokien">Dąb, buk wzdłuż włókien</string>
+    <string name="plyta_osb">Płyta OSB</string>
+    <string name="plyta_mdf_800">Płyta MDF (800)</string>
+    <string name="plywood">Sklejka</string>
+    <string name="materialy_termoizolacyjne">Materiały termoizolacyjne</string>
+    <string name="styropian_045">Styropian λ=0,045</string>
+    <string name="styropian_042">Styropian λ=0,042</string>
+    <string name="styropian_040">Styropian λ=0,040</string>
+    <string name="styropian_035">Styropian λ=0,035</string>
+    <string name="welna_mineralna_045">Wełna mineralna λ=0,045</string>
+    <string name="welna_mineralna_040">Wełna mineralna λ=0,040</string>
+    <string name="welna_mineralna_033">Wełna mineralna λ=0,033</string>
+    <string name="welna_mineralna_035">Wełna mineralna λ=0,035</string>
+    <string name="plyty_pu_029">Płyty PU λ=0,029</string>
+    <string name="plyty_pir_023">Płyty PIR λ=0,023</string>
+    <string name="nieruchoma_warstwa_powietrza">Nieruchoma warstwa powietrza</string>
+    <string name="materialy_oslonowe">Materiały osłonowe</string>
+    <string name="tynk_cementowy">Tynk cementowy</string>
+    <string name="tynk_cementowo_wapienny">Tynk cementowo-wapienny</string>
+    <string name="tynk_wapienny">Tynk wapienny</string>
+    <string name="tynk_gipsowy_lekki">Tynk gipsowy lekki</string>
+    <string name="tynk_cienkowarstwowy">Tynk cienkowarstwowy</string>
+    <string name="materia_wlasny">Materiał własny</string>
+    <string name="layer_add">dodaj warstwę do listy</string>
+    <string name="add_layer_label">DODAJ WARSTWĘ:</string>
+    <string name="new_material">Nowy materiał</string>
+    <string name="new_thickness">Podaj nową grubość warstwy:</string>
+    <string name="cancel">ANULUJ</string>
+    <string name="ok_button">OK</string>
 </resources>

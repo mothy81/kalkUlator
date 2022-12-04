@@ -35,27 +35,21 @@ public class DialogWindow2 extends AppCompatDialogFragment {
         tempo = (int) Math.round(Double.parseDouble(dStringTransfer));
         exchangeValue.setText(String.valueOf(tempo));
 
-        increaseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        increaseButton.setOnClickListener(v -> {
 
-                int temp2 = Integer.parseInt(exchangeValue.getText().toString());
-                exchangeValue.setText(String.valueOf(temp2+1));
-                if (temp2>=99){
-                    exchangeValue.setText(String.valueOf(99));
-                }
+            int temp2 = Integer.parseInt(exchangeValue.getText().toString());
+            exchangeValue.setText(String.valueOf(temp2+1));
+            if (temp2>=99){
+                exchangeValue.setText(String.valueOf(99));
             }
         });
 
-        decreaseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        decreaseButton.setOnClickListener(v -> {
 
-                int temp2 = Integer.parseInt(exchangeValue.getText().toString());
-                exchangeValue.setText(String.valueOf(temp2-1));
-                if (temp2<=1){
-                    exchangeValue.setText(String.valueOf(1));
-                }
+            int temp2 = Integer.parseInt(exchangeValue.getText().toString());
+            exchangeValue.setText(String.valueOf(temp2-1));
+            if (temp2<=1){
+                exchangeValue.setText(String.valueOf(1));
             }
         });
 
@@ -63,23 +57,16 @@ public class DialogWindow2 extends AppCompatDialogFragment {
 
 
         builder.setView(view)
-                .setTitle("Podaj nową grubość warstwy:")
-                .setNegativeButton("ANULUJ", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
+                .setTitle(R.string.new_thickness)
+                .setNegativeButton(R.string.cancel, (dialog, which) -> {
 
                 })
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (exchangeValue.getText().toString().length()==0){
-                            exchangeValue.setText("1");
-                        }
-                        String thickness = exchangeValue.getText().toString();
-                        listener.applyText(thickness);
+                .setPositiveButton(R.string.ok_button, (dialog, which) -> {
+                    if (exchangeValue.getText().toString().length()==0){
+                        exchangeValue.setText("1");
                     }
+                    String thickness = exchangeValue.getText().toString();
+                    listener.applyText(thickness);
                 });
 
         return builder.create();
@@ -91,7 +78,7 @@ public class DialogWindow2 extends AppCompatDialogFragment {
         try {
             listener = (DialogWindowListener) context;
         } catch (ClassCastException e) {
-            throw  new ClassCastException(context.toString() +
+            throw  new ClassCastException(context +
                     "Must implement DialogWindowListener");
         }
     }

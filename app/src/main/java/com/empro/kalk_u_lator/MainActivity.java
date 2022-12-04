@@ -227,12 +227,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     if (lambdaValue.getText().toString().length()==0)
                     {
-                        showToastRed("λ NIE MOŻE BYĆ RÓWNA 0!");
+                        showToastRed(getString(R.string.lambda_0));
                     } else
                     {
                         if (Double.valueOf(lambdaValue.getText().toString())==0)
                         {
-                            showToastRed("λ NIE MOŻE BYĆ RÓWNA 0!");
+                            showToastRed(getString(R.string.lambda_0));
                         } else {
 
                             if (thicknessValue.getText().length()==0){
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private void saveData()
     {
         if (mLayerList.size()==0){
-            showToastRed("Brak danych do zapisania");
+            showToastRed(getString(R.string.no_save_data));
         }else {
             SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             String json = gson.toJson(mLayerList);
             editor.putString("task list", json);
             editor.apply();
-            showToastBlue("Zapisano układ warstw");
+            showToastBlue(getString(R.string.saved_layers_state));
             savedLayerList = new ArrayList<>();
         }
     }
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         savedLayerList = gson.fromJson(json, type);
 
         if (savedLayerList == null){
-            showToastRed("NIE ZAPISANO UKŁADU WARSTW");
+            showToastRed(getString(R.string.no_saved_data));
         } else {
 
             clearAll();
@@ -391,11 +391,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         {
             String rString = (mLayerList.get(i).getText4());
             rSum = rSum + Double.parseDouble(rString);
-            rSum = (double) Math.round(rSum*100)/100;
+            rSum = (double) Math.round(rSum*1000)/1000;
         }
-        rSum = (double)Math.round(100/rSum)/100;
+        rSum = (double)Math.round(1000/rSum)/1000;
         if (mLayerList.size()==0) {
-            rBoxValue.setText("U = " + "0.00");
+            rBoxValue.setText("U = " + "0.000");
         } else {
             rBoxValue.setText("U = " + rSum);
         }
