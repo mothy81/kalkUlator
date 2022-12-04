@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <group
         android:id="@+id/menuGroup1">
         <item android:title="@string/constr_materials">
@@ -152,6 +153,7 @@
     <group
         android:id="@+id/menuGroup5">
         <item android:title="@string/materialy_oslonowe">
+
             <menu>
                 <item android:id="@+id/material51"
                     android:title="@string/tynk_cementowy"

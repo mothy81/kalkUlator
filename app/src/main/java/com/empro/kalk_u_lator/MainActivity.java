@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private TextView lambdaValue;
     private Button rBoxValue;
     private EditText thicknessValue;
-    //private MenuItem materialMenu;
-    //private Menu menuValues;
     private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
 
     private int dValue;
@@ -196,116 +194,84 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             decreaseButton = findViewById(R.id.thickness_decrease_button);
             increaseButton = findViewById(R.id.thickness_increase_button);
 
-            fabmenu1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    saveData();
-                    showFabMenu();
-                }
+            fabmenu1.setOnClickListener(v -> {
+                saveData();
+                showFabMenu();
             });
 
-            fabmenu2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    loadData();
+            fabmenu2.setOnClickListener(v -> loadData());
 
-                }
-            });
+            fabmenu3.setOnClickListener(v -> clearAll());
 
-            fabmenu3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    clearAll();
-                }
-            });
+            newLayerButton.setOnClickListener(v -> {
 
-            newLayerButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+                int position = mLayerList.size();
 
-                    int position = mLayerList.size();
-
-                    if (lambdaValue.getText().toString().length()==0)
+                if (lambdaValue.getText().toString().length()==0)
+                {
+                    showToastRed(getString(R.string.lambda_0));
+                } else
+                {
+                    if (Double.parseDouble(lambdaValue.getText().toString())==0)
                     {
                         showToastRed(getString(R.string.lambda_0));
-                    } else
-                    {
-                        if (Double.valueOf(lambdaValue.getText().toString())==0)
-                        {
-                            showToastRed(getString(R.string.lambda_0));
-                        } else {
-
-                            if (thicknessValue.getText().length()==0){
-                                thicknessValue.setText("1");
-                            }
-                                dValue = Integer.parseInt(thicknessValue.getText().toString());
-                                lValue = Double.parseDouble(lambdaValue.getText().toString());
-                                rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
-                                mValue = layerPopUpButton.getText().toString();
-                                mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
-                                mAdapter.notifyItemInserted(position);
-                                layerPopUpButton.setText(R.string.add_layer_title);
-                                newLayerButton.setVisibility(View.INVISIBLE);
-                                thicknessValue.setVisibility(View.INVISIBLE);
-                                decreaseButton.setVisibility(View.INVISIBLE);
-                                increaseButton.setVisibility(View.INVISIBLE);
-                                layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
-                                uCalc();
-                                    }
-                        }
-                }
-            });
-
-            decreaseButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                   dValue2 = Integer.parseInt(thicknessValue.getText().toString())-1;
-                   thicknessValue.setText(String.valueOf(dValue2));
-                    if (dValue2<=1)
-                    {
-                        thicknessValue.setText(String.valueOf(1));
-                    }
-                }
-            });
-
-            increaseButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dValue2 = Integer.parseInt(thicknessValue.getText().toString())+1;
-                    thicknessValue.setText(String.valueOf(dValue2));
-                    if (dValue2>=99)
-                    {
-                        thicknessValue.setText(String.valueOf(99));
-                    }
-                }
-            });
-
-            decreaseButton.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    dValue2 = Integer.parseInt(thicknessValue.getText().toString())-9;
-                    thicknessValue.setText(String.valueOf(dValue2));
-                    return false;
-                }
-            });
-
-            increaseButton.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    dValue2 = Integer.parseInt(thicknessValue.getText().toString())+9;
-                    thicknessValue.setText(String.valueOf(dValue2));
-                    return false;
-                }
-            });
-
-            rBoxValue.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!isFabOpen) {
-                        showFabMenu();
                     } else {
-                        closeFabMenu();
+
+                        if (thicknessValue.getText().length()==0){
+                            thicknessValue.setText("1");
+                        }
+                            dValue = Integer.parseInt(thicknessValue.getText().toString());
+                            lValue = Double.parseDouble(lambdaValue.getText().toString());
+                            rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
+                            mValue = layerPopUpButton.getText().toString();
+                            mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
+                            mAdapter.notifyItemInserted(position);
+                            layerPopUpButton.setText(R.string.add_layer_title);
+                            newLayerButton.setVisibility(View.INVISIBLE);
+                            thicknessValue.setVisibility(View.INVISIBLE);
+                            decreaseButton.setVisibility(View.INVISIBLE);
+                            increaseButton.setVisibility(View.INVISIBLE);
+                            layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
+                            uCalc();
+                                }
                     }
+            });
+
+            decreaseButton.setOnClickListener(v -> {
+               dValue2 = Integer.parseInt(thicknessValue.getText().toString())-1;
+               thicknessValue.setText(String.valueOf(dValue2));
+                if (dValue2<=1)
+                {
+                    thicknessValue.setText(String.valueOf(1));
+                }
+            });
+
+            increaseButton.setOnClickListener(v -> {
+                dValue2 = Integer.parseInt(thicknessValue.getText().toString())+1;
+                thicknessValue.setText(String.valueOf(dValue2));
+                if (dValue2>=99)
+                {
+                    thicknessValue.setText(String.valueOf(99));
+                }
+            });
+
+            decreaseButton.setOnLongClickListener(v -> {
+                dValue2 = Integer.parseInt(thicknessValue.getText().toString())-9;
+                thicknessValue.setText(String.valueOf(dValue2));
+                return false;
+            });
+
+            increaseButton.setOnLongClickListener(v -> {
+                dValue2 = Integer.parseInt(thicknessValue.getText().toString())+9;
+                thicknessValue.setText(String.valueOf(dValue2));
+                return false;
+            });
+
+            rBoxValue.setOnClickListener(v -> {
+                if (!isFabOpen) {
+                    showFabMenu();
+                } else {
+                    closeFabMenu();
                 }
             });
 
@@ -406,8 +372,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.popup_menu);
         popup.show();
-        //menuValues = popup.getMenu();
-        layerPopUpButton.setText("WYBIERZ MATERIAŁ:");
+        layerPopUpButton.setText(R.string.choose_material_label);
         layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
         newLayerButton.setVisibility(View.INVISIBLE);
         thicknessValue.setVisibility(View.INVISIBLE);

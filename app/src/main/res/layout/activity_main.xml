@@ -65,6 +65,7 @@
         android:onClick="showPopUp"
         android:text="@string/add_layer_label"
         android:textAllCaps="true"
+        android:textColor="@color/u_button_text"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -92,7 +93,6 @@
         app:layout_constraintEnd_toEndOf="@+id/thicknessValueEditText" />
 
 
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/thicknessValueEditText"
         android:layout_width="130dp"
@@ -106,6 +106,7 @@
         android:inputType="number"
         android:text="25"
         android:textAlignment="center"
+        android:textColor="@color/incdec_button"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView"
