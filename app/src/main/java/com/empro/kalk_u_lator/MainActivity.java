@@ -93,9 +93,21 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-    void showToast(String text){
+    void showToastBlue(String text){
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_root));
+        TextView toastText = layout.findViewById(R.id.toastText);
+        toastText.setText(text);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+
+    }
+    void showToastRed(String text){
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout_red, (ViewGroup) findViewById(R.id.toast_root));
         TextView toastText = layout.findViewById(R.id.toastText);
         toastText.setText(text);
         Toast toast = new Toast(getApplicationContext());
@@ -217,12 +229,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     if (lambdaValue.getText().toString().length()==0)
                     {
-                        showToast("λ NIE MOŻE BYĆ RÓWNA 0!");
+                        showToastRed("λ NIE MOŻE BYĆ RÓWNA 0!");
                     } else
                     {
                         if (Double.valueOf(lambdaValue.getText().toString())==0)
                         {
-                            showToast("λ NIE MOŻE BYĆ RÓWNA 0!");
+                            showToastRed("λ NIE MOŻE BYĆ RÓWNA 0!");
                         } else {
 
                             if (thicknessValue.getText().length()==0){
@@ -314,7 +326,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private void saveData()
     {
         if (mLayerList.size()==0){
-            showToast("Brak danych do zapisania");
+            showToastRed("Brak danych do zapisania");
         }else {
             SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -322,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             String json = gson.toJson(mLayerList);
             editor.putString("task list", json);
             editor.apply();
-            showToast("Zapisano układ warstw");
+            showToastBlue("Zapisano układ warstw");
             savedLayerList = new ArrayList<>();
         }
     }
@@ -338,7 +350,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         savedLayerList = gson.fromJson(json, type);
 
         if (savedLayerList == null){
-            showToast("NIE ZAPISANO UKŁADU WARSTW");
+            showToastRed("NIE ZAPISANO UKŁADU WARSTW");
         } else {
 
             clearAll();
