@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -86,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
-
     }
 
     void showToastBlue(String text){
@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     };
 
-
         public void removeItem(int position)
         {
             mLayerList.remove(position);
@@ -165,18 +164,42 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             mAdapter = new LayerAdapter(mLayerList);
             mRecyclerView.setLayoutManager(mlayoutManager);
             mRecyclerView.setAdapter(mAdapter);
-            //materialMenu = findViewById(R.id.material11);
 
             mAdapter.setOnItemClickListener(new LayerAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
 
-                    ItemPosition = position;
-                    DialogWindow2 dialog = new DialogWindow2();
+                   //ItemPosition = position;
+                   //DialogWindow2 dialog = new DialogWindow2();
+                   //dStringTransfer = (mLayerList.get(position).getText2());
+                   //dialog.show(getSupportFragmentManager(), "dialog ");
+                    Dialog dialog = new Dialog(MainActivity.this);
+                    dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    View view = getLayoutInflater().inflate(R.layout.d_change_dialog,null);
+                    dialog.setContentView(view);
+                    dialog.setCancelable(false);
+                    Button okButton = dialog.findViewById(R.id.okButton);
+                    Button cancelButton = dialog.findViewById(R.id.cancelButton);
+                    dialog.show();
 
-                    dStringTransfer = (mLayerList.get(position).getText2());
+                    okButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            EditText newd = dialog.findViewById(R.id.thicknessDialogValue);
+                            changeItem(position, newd.getText().toString());
 
-                    dialog.show(getSupportFragmentManager(), "dialog ");
+                            uCalc();
+                            dialog.dismiss();
+                        }
+                    });
+
+                    cancelButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
                 }
 
                 @Override
