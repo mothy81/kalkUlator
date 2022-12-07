@@ -169,10 +169,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 @Override
                 public void onItemClick(int position) {
 
-                   //ItemPosition = position;
-                   //DialogWindow2 dialog = new DialogWindow2();
-                   //dStringTransfer = (mLayerList.get(position).getText2());
-                   //dialog.show(getSupportFragmentManager(), "dialog ");
                     Dialog dialog = new Dialog(MainActivity.this);
                     dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                     View view = getLayoutInflater().inflate(R.layout.d_change_dialog,null);
@@ -180,19 +176,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     dialog.setCancelable(false);
                     Button okButton = dialog.findViewById(R.id.okButton);
                     Button cancelButton = dialog.findViewById(R.id.cancelButton);
+                    Button incButton = dialog.findViewById(R.id.increaseButton);
+                    Button decButton = dialog.findViewById(R.id.decreaseButton);
+                    EditText newD = dialog.findViewById((R.id.thicknessDialogValue));
+                    newD.setText(mLayerList.get(position).getText2());
                     dialog.show();
 
                     okButton.setOnClickListener(v -> {
 
-                        EditText newd = dialog.findViewById(R.id.thicknessDialogValue);
-                        newd.setText(mLayerList.get(position).getText2());
-
-                        double newL = Double.valueOf(mLayerList.get(position).getText3());
-                        double newR = Math.round(10*Integer.valueOf(newd.getText().toString())/newL);
+                        double newL = Double.parseDouble(mLayerList.get(position).getText3());
+                        double newR = Math.round(10*Integer.parseInt(newD.getText().toString())/newL);
                         newR = newR/1000;
-                        changeItem(position, newd.getText().toString());
-                        changeItem4(position,String.valueOf(newR) );
-
+                        changeItem(position, newD.getText().toString());
+                        changeItem4(position,String.valueOf(newR));
 
                         uCalc();
                         dialog.dismiss();
@@ -202,6 +198,22 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
+                        }
+                    });
+
+                    decButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            tempD = tempD-1;
+                            newD.setText(String.valueOf(tempD));
+                        }
+                    });
+
+                    incButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
                         }
                     });
 
