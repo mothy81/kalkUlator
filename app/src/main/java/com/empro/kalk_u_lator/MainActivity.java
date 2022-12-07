@@ -31,7 +31,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DialogWindow2.DialogWindowListener, OwnMaterialDialog.OwnMaterialListener {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private ArrayList<SingleItem> mLayerList;
     private ArrayList<SingleItem> savedLayerList;
@@ -200,45 +200,34 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         dialog.dismiss();
                     });
 
-                    cancelButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
+                    cancelButton.setOnClickListener(v -> dialog.dismiss());
+
+                    decButton.setOnClickListener(view1 -> {
+                        if (newD.getText().toString().length()==0){
+                            newD.setText("1");
                         }
+
+                        int tempD = Integer.parseInt(newD.getText().toString());
+                        if (tempD>1){
+                            tempD = tempD-1;
+                        } else {
+                            tempD = 1;
+                        }
+                        newD.setText(String.valueOf(tempD));
                     });
 
-                    decButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (newD.getText().toString().length()==0){
-                                newD.setText("1");
-                            }
-
-                            int tempD = Integer.parseInt(newD.getText().toString());
-                            if (tempD>1){
-                                tempD = tempD-1;
-                            } else {
-                                tempD = 1;
-                            }
-                            newD.setText(String.valueOf(tempD));
+                    incButton.setOnClickListener(view12 -> {
+                        if (newD.getText().toString().length()==0) {
+                            newD.setText("1");
                         }
-                    });
-
-                    incButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (newD.getText().toString().length()==0) {
-                                newD.setText("1");
-                            }
-                            int tempD = Integer.parseInt(newD.getText().toString());
-                            if (tempD<99){
-                                tempD = tempD+1;
-                            } else {
-                                tempD = 99;
-                            }
-                            newD.setText(String.valueOf(tempD));
-
+                        int tempD = Integer.parseInt(newD.getText().toString());
+                        if (tempD<99){
+                            tempD = tempD+1;
+                        } else {
+                            tempD = 99;
                         }
+                        newD.setText(String.valueOf(tempD));
+
                     });
 
                 }
@@ -539,9 +528,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     dialog.dismiss();
                 }
             }
-
-
-
         });
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -550,10 +536,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 dialog.dismiss();
             }
         });
-
-
-
-
     }
 
     private void popUpMetodsInit() {
@@ -565,23 +547,4 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-    @Override
-    public void applyText(String thickness) {
-
-        int position = ItemPosition;
-        double ltemp = Double.parseDouble(mLayerList.get(position).getText3());
-        double rtemp = Math.round(10*Double.parseDouble(thickness)/ltemp);
-        rtemp = rtemp/1000;
-        changeItem(position, thickness);
-        changeItem4(position, String.valueOf(rtemp));
-        uCalc();
-    }
-
-    @Override
-    public void applyData(String name, String lambda) {
-
-        layerPopUpButton.setText(name+" λ="+lambda);
-        lambdaValue.setText(lambda);
-        popUpMetodsInit();
-    }
 }
