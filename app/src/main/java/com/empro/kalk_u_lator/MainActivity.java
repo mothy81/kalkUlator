@@ -505,8 +505,54 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void initNewMaterialDialog() {
 
-    OwnMaterialDialog ownMaterialDialog = new OwnMaterialDialog();
-    ownMaterialDialog.show(getSupportFragmentManager(),"New material dialog");
+        Dialog dialog = new Dialog(MainActivity.this);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        View view = getLayoutInflater().inflate(R.layout.own_material_layout,null);
+        dialog.setContentView(view);
+        dialog.setCancelable(false);
+        Button okButton = dialog.findViewById(R.id.okButton);
+        Button cancelButton = dialog.findViewById(R.id.cancelButton);
+        EditText newLambda = dialog.findViewById((R.id.lambdaValue));
+        TextView newName = dialog.findViewById((R.id.nameValue));
+
+        newLambda.setFilters(new InputFilter[]{
+                new InputFilter.LengthFilter(5)});
+        newName.setFilters(new InputFilter[]{
+                new InputFilter.LengthFilter(20)});
+        dialog.show();
+
+        okButton.setOnClickListener(v -> {
+
+            if (newLambda.getText().length()==0) {
+                showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
+            } else {
+                if (Double.valueOf(newLambda.getText().toString()) == 0) {
+                    showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
+                } else {
+
+                    layerPopUpButton.setText(newName.getText() + " λ=" + newLambda.getText());
+                    lambdaValue.setText(newLambda.getText());
+                    newLayerButton.setVisibility(View.VISIBLE);
+                    thicknessValue.setVisibility(View.VISIBLE);
+                    decreaseButton.setVisibility(View.VISIBLE);
+                    increaseButton.setVisibility(View.VISIBLE);
+                    dialog.dismiss();
+                }
+            }
+
+
+
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
+
 
     }
 

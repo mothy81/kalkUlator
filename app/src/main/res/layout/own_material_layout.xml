@@ -2,43 +2,105 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
-    android:layout_height="210dp">
+    android:layout_width="330dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:gravity="center">
 
-    <EditText
-        android:id="@+id/nameValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:inputType="textShortMessage"
-        android:text="@string/new_material"
-        android:textAlignment="center"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/newMaterialDialogBody"
+        android:layout_width="330dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_body_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/lambdaValue"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameValue" />
+        <EditText
+            android:id="@+id/nameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:inputType="textShortMessage"
+            android:text="@string/new_material"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <TextView
-        android:id="@+id/textView5"
-        style="@style/DialogTextView"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/lambdaValue"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="55dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameValue" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/DialogTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="λ = "
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/lambdaValue"
+            app:layout_constraintTop_toTopOf="@+id/lambdaValue" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_title_body"
+            android:padding="10dp"
+            android:text="Określ parametry materiału:"
+            android:textColor="@color/choose_button_text"
+            android:textColorHighlight="@color/choose_button_text"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="28dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="λ = "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/lambdaValue"
-        app:layout_constraintTop_toTopOf="@+id/lambdaValue" />
+        android:layout_marginBottom="-25dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/newMaterialDialogBody"
+        app:layout_constraintEnd_toEndOf="@+id/newMaterialDialogBody"
+        app:layout_constraintStart_toStartOf="@+id/newMaterialDialogBody">
+
+
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/dialog_button"
+            android:text="OK"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cancelButton" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/dialog_button"
+            android:text="ANULUJ"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
