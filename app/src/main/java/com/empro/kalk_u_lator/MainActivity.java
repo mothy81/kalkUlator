@@ -180,9 +180,15 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     Button decButton = dialog.findViewById(R.id.decreaseButton);
                     EditText newD = dialog.findViewById((R.id.thicknessDialogValue));
                     newD.setText(mLayerList.get(position).getText2());
+                    newD.setFilters(new InputFilter[]{
+                            new InputFilter.LengthFilter(2)});
                     dialog.show();
 
                     okButton.setOnClickListener(v -> {
+
+                        if (newD.getText().length()==0) {
+                            newD.setText("1");
+                        }
 
                         double newL = Double.parseDouble(mLayerList.get(position).getText3());
                         double newR = Math.round(10*Integer.parseInt(newD.getText().toString())/newL);
@@ -204,8 +210,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     decButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            if (newD.getText().toString().length()==0){
+                                newD.setText("1");
+                            }
+
                             int tempD = Integer.parseInt(newD.getText().toString());
-                            tempD = tempD-1;
+                            if (tempD>1){
+                                tempD = tempD-1;
+                            } else {
+                                tempD = 1;
+                            }
                             newD.setText(String.valueOf(tempD));
                         }
                     });
@@ -213,6 +227,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     incButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            if (newD.getText().toString().length()==0) {
+                                newD.setText("1");
+                            }
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            if (tempD<99){
+                                tempD = tempD+1;
+                            } else {
+                                tempD = 99;
+                            }
+                            newD.setText(String.valueOf(tempD));
 
                         }
                     });
