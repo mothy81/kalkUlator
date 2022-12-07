@@ -182,23 +182,20 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     Button cancelButton = dialog.findViewById(R.id.cancelButton);
                     dialog.show();
 
-                    okButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
+                    okButton.setOnClickListener(v -> {
 
-                            EditText newd = dialog.findViewById(R.id.thicknessDialogValue);
-                            newd.setText(mLayerList.get(position).getText2());
+                        EditText newd = dialog.findViewById(R.id.thicknessDialogValue);
+                        newd.setText(mLayerList.get(position).getText2());
 
-                            double newL = Double.valueOf(mLayerList.get(position).getText3());
-                            double newR = Math.round(10*Integer.valueOf(newd.getText().toString())/newL);
-                            newR = newR/1000;
-                            changeItem(position, newd.getText().toString());
-                            changeItem4(position,String.valueOf(newR) );
+                        double newL = Double.valueOf(mLayerList.get(position).getText3());
+                        double newR = Math.round(10*Integer.valueOf(newd.getText().toString())/newL);
+                        newR = newR/1000;
+                        changeItem(position, newd.getText().toString());
+                        changeItem4(position,String.valueOf(newR) );
 
 
-                            uCalc();
-                            dialog.dismiss();
-                        }
+                        uCalc();
+                        dialog.dismiss();
                     });
 
                     cancelButton.setOnClickListener(new View.OnClickListener() {
