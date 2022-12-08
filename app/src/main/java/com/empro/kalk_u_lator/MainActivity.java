@@ -188,6 +188,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                         if (newD.getText().length()==0) {
                             newD.setText("1");
+                        } else {
+                            if (Integer.parseInt(newD.getText().toString())==0) {
+                                newD.setText("1");
+                            }
                         }
 
                         double newL = Double.parseDouble(mLayerList.get(position).getText3());
@@ -228,6 +232,41 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         }
                         newD.setText(String.valueOf(tempD));
 
+                    });
+
+                    incButton.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            if (newD.getText().toString().length()==0) {
+                                newD.setText("1");
+                            }
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            if (tempD<89){
+                                tempD = tempD+10;
+                            } else {
+                                tempD = 99;
+                            }
+                            newD.setText(String.valueOf(tempD));
+                            return true;
+                        }
+                    });
+
+                    decButton.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            if (newD.getText().toString().length()==0){
+                                newD.setText("1");
+                            }
+
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            if (tempD>10){
+                                tempD = tempD-10;
+                            } else {
+                                tempD = 1;
+                            }
+                            newD.setText(String.valueOf(tempD));
+                            return true;
+                        }
                     });
 
                 }
@@ -309,12 +348,17 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             });
 
             decreaseButton.setOnLongClickListener(v -> {
-                dValue2 = Integer.parseInt(thicknessValue.getText().toString())-10;
-                thicknessValue.setText(String.valueOf(dValue2));
+                if (Integer.parseInt(thicknessValue.getText().toString())<11){
+                    thicknessValue.setText(String.valueOf(1));
+                }else {
+                    dValue2 = Integer.parseInt(thicknessValue.getText().toString()) - 10;
+                    thicknessValue.setText(String.valueOf(dValue2));
+                }
                 return true;
             });
 
             increaseButton.setOnLongClickListener(v -> {
+
                 dValue2 = Integer.parseInt(thicknessValue.getText().toString())+10;
 
                 thicknessValue.setText(String.valueOf(dValue2));
