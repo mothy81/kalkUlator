@@ -309,15 +309,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             });
 
             decreaseButton.setOnLongClickListener(v -> {
-                dValue2 = Integer.parseInt(thicknessValue.getText().toString())-9;
+                dValue2 = Integer.parseInt(thicknessValue.getText().toString())-10;
                 thicknessValue.setText(String.valueOf(dValue2));
-                return false;
+                return true;
             });
 
             increaseButton.setOnLongClickListener(v -> {
-                dValue2 = Integer.parseInt(thicknessValue.getText().toString())+9;
+                dValue2 = Integer.parseInt(thicknessValue.getText().toString())+10;
+
                 thicknessValue.setText(String.valueOf(dValue2));
-                return false;
+                return true;
             });
 
             rBoxValue.setOnClickListener(v -> {
