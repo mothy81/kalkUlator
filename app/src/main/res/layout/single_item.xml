@@ -120,6 +120,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/isEditableLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/lLabel"
+            app:layout_constraintTop_toTopOf="@+id/lLabel" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

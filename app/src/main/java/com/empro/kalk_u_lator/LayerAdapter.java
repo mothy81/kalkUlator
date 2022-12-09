@@ -35,6 +35,7 @@ public class LayerAdapter extends RecyclerView.Adapter<LayerAdapter.LayerViewHol
         public TextView mTextView2;
         public TextView mTextView3;
         public TextView mTextView4;
+        public TextView isEditableLabel;
         public ImageView mDeleteImage;
 
         public LayerViewHolder(View itemView,final OnItemClickListener listener) {
@@ -44,6 +45,7 @@ public class LayerAdapter extends RecyclerView.Adapter<LayerAdapter.LayerViewHol
             mTextView2 = itemView.findViewById(R.id.textView2);
             mTextView3 = itemView.findViewById(R.id.textView3);
             mTextView4 = itemView.findViewById(R.id.textView4);
+            isEditableLabel = itemView.findViewById(R.id.isEditableLabel);
             mDeleteImage = itemView.findViewById(R.id.image_delete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +97,7 @@ public class LayerAdapter extends RecyclerView.Adapter<LayerAdapter.LayerViewHol
         holder.mTextView2.setText(currentItem.getText2());
         holder.mTextView3.setText(currentItem.getText3());
         holder.mTextView4.setText(currentItem.getText4());
+        holder.isEditableLabel.setText(currentItem.getText5());
 
     }
 

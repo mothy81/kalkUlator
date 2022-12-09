@@ -20,25 +20,25 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Określ kierunek przepływu ciepła" />
+            android:text="Jaką przegrodę liczymy?" />
 
         <Button
             android:id="@+id/upButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="W górę" />
+            android:text="Strop" />
 
         <Button
             android:id="@+id/horizontalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="poziomo" />
+            android:text="Ściana" />
 
         <Button
             android:id="@+id/downButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="W dół" />
+            android:text="podłoga" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

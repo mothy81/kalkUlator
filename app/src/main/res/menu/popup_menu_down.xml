@@ -8,21 +8,27 @@
 <menu>
     <item android:id="@+id/material11"
         android:title="aaaaaaaaaaaaa"
+        android:contentDescription="1"
         android:tooltipText="1.7"/>
     <item android:id="@+id/material12"
         android:title="@string/concrete_2200"
+        android:contentDescription="1"
         android:tooltipText="1.3"/>
     <item android:id="@+id/material13"
         android:title="@string/concrete_1900"
+        android:contentDescription="1"
         android:tooltipText="1.0"/>
     <item android:id="@+id/material14"
         android:title="@string/reinforced_concrete"
+        android:contentDescription="1"
         android:tooltipText="2.3"/>
     <item android:id="@+id/material15"
         android:title="@string/cobblestone"
+        android:contentDescription="1"
         android:tooltipText="3.5"/>
     <item android:id="@+id/material16"
         android:title="@string/sandstone"
+        android:contentDescription="1"
         android:tooltipText="2.2"/>
     <item android:id="@+id/material17"
         android:title="@string/cell_concrete_400"

@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Button layerPopUpButton;
     private Button newLayerButton;
     private TextView lambdaValue;
+    private TextView isItemEditable;
     private Button rBoxValue;
     private EditText thicknessValue;
     private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
@@ -57,9 +58,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private Double rSum;
 
     boolean isFabOpen = false;
-    public String dStringTransfer;
-    public int ItemPosition;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         setContentView(R.layout.activity_main);
 
         lambdaValue = findViewById(R.id.lambdaBoxValue);
+        isItemEditable = findViewById(R.id.isItemEditableBox);
         rBoxValue = findViewById(R.id.rBoxValue);
         thicknessValue = findViewById(R.id.thicknessValueEditText);
         layerPopUpButton = findViewById(R.id.popup_button);
@@ -169,106 +168,110 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 @Override
                 public void onItemClick(int position) {
 
-                    Dialog dialog = new Dialog(MainActivity.this);
-                    dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                    View view = getLayoutInflater().inflate(R.layout.d_change_dialog,null);
-                    dialog.setContentView(view);
-                    dialog.setCancelable(false);
-                    Button okButton = dialog.findViewById(R.id.okButton);
-                    Button cancelButton = dialog.findViewById(R.id.cancelButton);
-                    Button incButton = dialog.findViewById(R.id.increaseButton);
-                    Button decButton = dialog.findViewById(R.id.decreaseButton);
-                    EditText newD = dialog.findViewById((R.id.thicknessDialogValue));
-                    newD.setText(mLayerList.get(position).getText2());
-                    newD.setFilters(new InputFilter[]{
-                            new InputFilter.LengthFilter(2)});
-                    dialog.show();
+                    if (Integer.parseInt(mLayerList.get(position).getText5())==0) {
+                        showToastRed("NIE MOŻNA ZMIENIĆ GRUBOŚCI TEJ WARSTWY");
+                    } else {
 
-                    okButton.setOnClickListener(v -> {
+                        Dialog dialog = new Dialog(MainActivity.this);
+                        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                        View view = getLayoutInflater().inflate(R.layout.d_change_dialog, null);
+                        dialog.setContentView(view);
+                        dialog.setCancelable(false);
+                        Button okButton = dialog.findViewById(R.id.okButton);
+                        Button cancelButton = dialog.findViewById(R.id.cancelButton);
+                        Button incButton = dialog.findViewById(R.id.increaseButton);
+                        Button decButton = dialog.findViewById(R.id.decreaseButton);
+                        EditText newD = dialog.findViewById((R.id.thicknessDialogValue));
+                        newD.setText(mLayerList.get(position).getText2());
+                        newD.setFilters(new InputFilter[]{
+                                new InputFilter.LengthFilter(2)});
+                        dialog.show();
 
-                        if (newD.getText().length()==0) {
-                            newD.setText("1");
-                        } else {
-                            if (Integer.parseInt(newD.getText().toString())==0) {
+                        okButton.setOnClickListener(v -> {
+
+                            if (newD.getText().length() == 0) {
                                 newD.setText("1");
-                            }
-                        }
-
-                        double newL = Double.parseDouble(mLayerList.get(position).getText3());
-                        double newR = Math.round(10*Integer.parseInt(newD.getText().toString())/newL);
-                        newR = newR/1000;
-                        changeItem(position, newD.getText().toString());
-                        changeItem4(position,String.valueOf(newR));
-
-                        uCalc();
-                        dialog.dismiss();
-                    });
-
-                    cancelButton.setOnClickListener(v -> dialog.dismiss());
-
-                    decButton.setOnClickListener(view1 -> {
-                        if (newD.getText().toString().length()==0){
-                            newD.setText("1");
-                        }
-
-                        int tempD = Integer.parseInt(newD.getText().toString());
-                        if (tempD>1){
-                            tempD = tempD-1;
-                        } else {
-                            tempD = 1;
-                        }
-                        newD.setText(String.valueOf(tempD));
-                    });
-
-                    incButton.setOnClickListener(view12 -> {
-                        if (newD.getText().toString().length()==0) {
-                            newD.setText("1");
-                        }
-                        int tempD = Integer.parseInt(newD.getText().toString());
-                        if (tempD<99){
-                            tempD = tempD+1;
-                        } else {
-                            tempD = 99;
-                        }
-                        newD.setText(String.valueOf(tempD));
-
-                    });
-
-                    incButton.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            if (newD.getText().toString().length()==0) {
-                                newD.setText("1");
-                            }
-                            int tempD = Integer.parseInt(newD.getText().toString());
-                            if (tempD<89){
-                                tempD = tempD+10;
                             } else {
-                                tempD = 99;
+                                if (Integer.parseInt(newD.getText().toString()) == 0) {
+                                    newD.setText("1");
+                                }
                             }
-                            newD.setText(String.valueOf(tempD));
-                            return true;
-                        }
-                    });
 
-                    decButton.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            if (newD.getText().toString().length()==0){
+                            double newL = Double.parseDouble(mLayerList.get(position).getText3());
+                            double newR = Math.round(10 * Integer.parseInt(newD.getText().toString()) / newL);
+                            newR = newR / 1000;
+                            changeItem(position, newD.getText().toString());
+                            changeItem4(position, String.valueOf(newR));
+
+                            uCalc();
+                            dialog.dismiss();
+                        });
+
+                        cancelButton.setOnClickListener(v -> dialog.dismiss());
+
+                        decButton.setOnClickListener(view1 -> {
+                            if (newD.getText().toString().length() == 0) {
                                 newD.setText("1");
                             }
 
                             int tempD = Integer.parseInt(newD.getText().toString());
-                            if (tempD>10){
-                                tempD = tempD-10;
+                            if (tempD > 1) {
+                                tempD = tempD - 1;
                             } else {
                                 tempD = 1;
                             }
                             newD.setText(String.valueOf(tempD));
-                            return true;
-                        }
-                    });
+                        });
 
+                        incButton.setOnClickListener(view12 -> {
+                            if (newD.getText().toString().length() == 0) {
+                                newD.setText("1");
+                            }
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            if (tempD < 99) {
+                                tempD = tempD + 1;
+                            } else {
+                                tempD = 99;
+                            }
+                            newD.setText(String.valueOf(tempD));
+
+                        });
+
+                        incButton.setOnLongClickListener(new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                if (newD.getText().toString().length() == 0) {
+                                    newD.setText("1");
+                                }
+                                int tempD = Integer.parseInt(newD.getText().toString());
+                                if (tempD < 89) {
+                                    tempD = tempD + 10;
+                                } else {
+                                    tempD = 99;
+                                }
+                                newD.setText(String.valueOf(tempD));
+                                return true;
+                            }
+                        });
+
+                        decButton.setOnLongClickListener(new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                if (newD.getText().toString().length() == 0) {
+                                    newD.setText("1");
+                                }
+
+                                int tempD = Integer.parseInt(newD.getText().toString());
+                                if (tempD > 10) {
+                                    tempD = tempD - 10;
+                                } else {
+                                    tempD = 1;
+                                }
+                                newD.setText(String.valueOf(tempD));
+                                return true;
+                            }
+                        });
+                    }
                 }
 
                 @Override
@@ -316,7 +319,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                             lValue = Double.parseDouble(lambdaValue.getText().toString());
                             rrValue = ((double) Math.round(10 * dValue / lValue))/1000;
                             mValue = layerPopUpButton.getText().toString();
-                            mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString()));
+                            mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, mValue, String.valueOf(dValue), lValue.toString(), rrValue.toString(), isItemEditable.getText().toString()));
                             mAdapter.notifyItemInserted(position);
                             layerPopUpButton.setText(R.string.add_layer_title);
                             newLayerButton.setVisibility(View.INVISIBLE);
@@ -422,7 +425,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 String text2temp = savedLayerList.get(i).getText2();
                 String text3temp = savedLayerList.get(i).getText3();
                 String text4temp = savedLayerList.get(i).getText4();
-                mLayerList.add(i, new SingleItem(R.drawable.ic_baseline_equalizer_24, text1temp, text2temp, text3temp, text4temp));
+                String text5temp = savedLayerList.get(i).getText5();
+                mLayerList.add(i, new SingleItem(R.drawable.ic_baseline_equalizer_24, text1temp, text2temp, text3temp, text4temp, text5temp));
                 mAdapter.notifyItemInserted(i);
             }
             uCalc();
@@ -528,6 +532,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material55:
                 lambdaValue.setText(item.getTooltipText());
                 layerPopUpButton.setText(item.getTitle());
+                isItemEditable.setText(item.getContentDescription());
                 popUpMetodsInit();
                 return true;
             case R.id.material6:
