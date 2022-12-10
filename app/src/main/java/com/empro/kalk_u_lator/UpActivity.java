@@ -481,16 +481,6 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
     public boolean onMenuItemClick(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.material11:
-            case R.id.material12:
-            case R.id.material13:
-            case R.id.material14:
-            case R.id.material15:
-            case R.id.material16:
-            case R.id.material17:
-            case R.id.material18:
-            case R.id.material19:
-            case R.id.material110:
             case R.id.material111:
             case R.id.material112:
             case R.id.material113:
@@ -498,15 +488,20 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material115:
             case R.id.material116:
             case R.id.material117:
-            case R.id.material118:
-            case R.id.material119:
-            case R.id.material120:
             case R.id.material121:
-            case R.id.material21:
-            case R.id.material22:
-            case R.id.material23:
+            case R.id.material122:
+            case R.id.material123:
+            case R.id.material124:
+            case R.id.material125:
+            case R.id.material131:
+            case R.id.material132:
+            case R.id.material133:
+            case R.id.material134:
+            case R.id.material135:
+            case R.id.material136:
+            case R.id.material141:
+            case R.id.material142:
             case R.id.material31:
-            case R.id.material32:
             case R.id.material33:
             case R.id.material34:
             case R.id.material35:
@@ -519,15 +514,17 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material45:
             case R.id.material46:
             case R.id.material47:
-            case R.id.material48:
-            case R.id.material49:
-            case R.id.material410:
-            case R.id.material411:
             case R.id.material51:
             case R.id.material52:
             case R.id.material53:
             case R.id.material54:
             case R.id.material55:
+            case R.id.material56:
+            case R.id.material57:
+            case R.id.material58:
+            case R.id.material59:
+            case R.id.material510:
+            case R.id.material511:
                 isItemEditable.setText(item.getContentDescription().toString());
                 if (Double.parseDouble(item.getContentDescription().toString())!=1){
                     rrValue = Double.parseDouble(item.getContentDescription().toString());
