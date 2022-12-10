@@ -75,6 +75,26 @@
         android:title="@string/mur_z_pustakow_poroton"
         android:contentDescription="1"
         android:tooltipText="0.24"/>
+    <item android:id="@+id/material118"
+        android:title="Mur z pust. POROTHERM 44cm"
+        android:contentDescription="2.6"
+        android:titleCondensed="44"
+        android:tooltipText="0.169"/>
+    <item android:id="@+id/material119"
+        android:title="Mur z pust. POROTHERM 38cm"
+        android:contentDescription="2.28"
+        android:titleCondensed="38"
+        android:tooltipText="0.167"/>
+    <item android:id="@+id/material120"
+        android:title="Mur z pust. POROTHERM 25cm"
+        android:contentDescription="0.66"
+        android:titleCondensed="25"
+        android:tooltipText="0.377"/>
+    <item android:id="@+id/material121"
+        android:title="Mur z pust. POROTHERM 11cm"
+        android:contentDescription="0.31"
+        android:titleCondensed="11"
+        android:tooltipText="0.359"/>
 
 </menu>
         </item>

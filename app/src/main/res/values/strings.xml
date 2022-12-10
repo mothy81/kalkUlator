@@ -68,4 +68,6 @@
     <string name="cancel">ANULUJ</string>
     <string name="ok_button">OK</string>
     <string name="choose_material_label">WYBIERZ MATERIAŁ:</string>
+    <string name="cant_change_thickness_toast">NIE MOŻNA ZMIENIĆ GRUBOŚCI TEJ WARSTWY</string>
+    <string name="lambda_0_toast">λ NIE MOŻE BYĆ RÓWNA 0</string>
 </resources>

@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 public void onItemClick(int position) {
 
                     if (Integer.parseInt(mLayerList.get(position).getText5())==0) {
-                        showToastRed("NIE MOŻNA ZMIENIĆ GRUBOŚCI TEJ WARSTWY");
+                        showToastRed(getString(R.string.cant_change_thickness_toast));
                     } else {
 
                         Dialog dialog = new Dialog(MainActivity.this);
@@ -237,39 +237,33 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                         });
 
-                        incButton.setOnLongClickListener(new View.OnLongClickListener() {
-                            @Override
-                            public boolean onLongClick(View v) {
-                                if (newD.getText().toString().length() == 0) {
-                                    newD.setText("1");
-                                }
-                                int tempD = Integer.parseInt(newD.getText().toString());
-                                if (tempD < 89) {
-                                    tempD = tempD + 10;
-                                } else {
-                                    tempD = 99;
-                                }
-                                newD.setText(String.valueOf(tempD));
-                                return true;
+                        incButton.setOnLongClickListener(v -> {
+                            if (newD.getText().toString().length() == 0) {
+                                newD.setText("1");
                             }
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            if (tempD < 89) {
+                                tempD = tempD + 10;
+                            } else {
+                                tempD = 99;
+                            }
+                            newD.setText(String.valueOf(tempD));
+                            return true;
                         });
 
-                        decButton.setOnLongClickListener(new View.OnLongClickListener() {
-                            @Override
-                            public boolean onLongClick(View v) {
-                                if (newD.getText().toString().length() == 0) {
-                                    newD.setText("1");
-                                }
-
-                                int tempD = Integer.parseInt(newD.getText().toString());
-                                if (tempD > 10) {
-                                    tempD = tempD - 10;
-                                } else {
-                                    tempD = 1;
-                                }
-                                newD.setText(String.valueOf(tempD));
-                                return true;
+                        decButton.setOnLongClickListener(v -> {
+                            if (newD.getText().toString().length() == 0) {
+                                newD.setText("1");
                             }
+
+                            int tempD = Integer.parseInt(newD.getText().toString());
+                            if (tempD > 10) {
+                                tempD = tempD - 10;
+                            } else {
+                                tempD = 1;
+                            }
+                            newD.setText(String.valueOf(tempD));
+                            return true;
                         });
                     }
                 }
@@ -504,6 +498,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material115:
             case R.id.material116:
             case R.id.material117:
+            case R.id.material118:
+            case R.id.material119:
+            case R.id.material120:
+            case R.id.material121:
             case R.id.material21:
             case R.id.material22:
             case R.id.material23:
@@ -530,10 +528,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material53:
             case R.id.material54:
             case R.id.material55:
+                isItemEditable.setText(item.getContentDescription().toString());
+                if (Double.parseDouble(item.getContentDescription().toString())!=1){
+                    rrValue = Double.parseDouble(item.getContentDescription().toString());
+                    int position = mLayerList.size();
+                    mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, item.getTitle().toString(),
+                            item.getTitleCondensed().toString(), item.getTooltipText().toString(), rrValue.toString(), "0"));
+                    mAdapter.notifyItemInserted(position);
+                    uCalc();
+                } else {
                 lambdaValue.setText(item.getTooltipText());
                 layerPopUpButton.setText(item.getTitle());
-                isItemEditable.setText(item.getContentDescription());
                 popUpMetodsInit();
+                }
                 return true;
             case R.id.material6:
                     initNewMaterialDialog();
@@ -563,10 +570,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         okButton.setOnClickListener(v -> {
 
             if (newLambda.getText().length()==0) {
-                showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
+                showToastRed(getString(R.string.lambda_0_toast));
             } else {
-                if (Double.valueOf(newLambda.getText().toString()) == 0) {
-                    showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
+                if (Double.parseDouble(newLambda.getText().toString()) == 0) {
+                    showToastRed(getString(R.string.lambda_0_toast));
                 } else {
 
                     layerPopUpButton.setText(newName.getText() + " λ=" + newLambda.getText());
@@ -580,12 +587,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        cancelButton.setOnClickListener(v -> dialog.dismiss());
     }
 
     private void popUpMetodsInit() {
