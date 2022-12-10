@@ -12,7 +12,7 @@
     <string name="saved_layers_state">ZAPISANO UKŁAD WARSTW</string>
     <string name="no_saved_data">NIE ZAPISANO UKŁADU WARSTW</string>
     <string name="lambda_0">λ NIE MOŻE BYĆ RÓWNA 0!</string>
-    <string name="constr_materials">Materiały konstrukcyjne</string>
+    <string name="constr_materials">Ściany</string>
     <string name="concrete_2400">Beton zwykły 2400kg/m3</string>
     <string name="concrete_2200">Beton zwykły 2200kg/m3</string>
     <string name="concrete_1900">Beton zwykły 1900kg/m3</string>
@@ -70,4 +70,5 @@
     <string name="choose_material_label">WYBIERZ MATERIAŁ:</string>
     <string name="cant_change_thickness_toast">NIE MOŻNA ZMIENIĆ GRUBOŚCI TEJ WARSTWY</string>
     <string name="lambda_0_toast">λ NIE MOŻE BYĆ RÓWNA 0</string>
+    <string name="stropy">Stropy</string>
 </resources>
