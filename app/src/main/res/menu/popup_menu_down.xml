@@ -80,34 +80,71 @@
             </menu>
         </item>
     </group>
+    <group
+        android:id="@+id/menuGroup13">
+        <item android:title="Płyty kanałowe">
+            <menu>
+                <item android:id="@+id/material131"
+                    android:title="Płyty kanałowe 200"
+                    android:contentDescription="0.14"
+                    android:titleCondensed="20"
+                    android:tooltipText="1.429"/>
+                <item android:id="@+id/material132"
+                    android:title="Płyty kanałowe 220"
+                    android:contentDescription="0.15"
+                    android:titleCondensed="22"
+                    android:tooltipText="1.467"/>
+                <item android:id="@+id/material133"
+                    android:title="Płyty kanałowe 265"
+                    android:contentDescription="0.17"
+                    android:titleCondensed="27"
+                    android:tooltipText="1.559"/>
+                <item android:id="@+id/material134"
+                    android:title="Płyty kanałowe 320"
+                    android:contentDescription="0.18"
+                    android:titleCondensed="32"
+                    android:tooltipText="1.778"/>
+                <item android:id="@+id/material135"
+                    android:title="Płyty kanałowe 400"
+                    android:contentDescription="0.20"
+                    android:titleCondensed="40"
+                    android:tooltipText="2.0"/>
+                <item android:id="@+id/material136"
+                    android:title="Płyty kanałowe 500"
+                    android:contentDescription="0.23"
+                    android:titleCondensed="40"
+                    android:tooltipText="2.17"/>
+            </menu>
+        </item>
+    </group>
+    <group
+        android:id="@+id/menuGroup14">
+        <item android:title="Strop Kleina">
+            <menu>
+                <item android:id="@+id/material141"
+                    android:title="Strop lekki"
+                    android:contentDescription="0.077"
+                    android:titleCondensed="7"
+                    android:tooltipText="0,85"/>
+                <item android:id="@+id/material142"
+                    android:title="Strop ciężki"
+                    android:contentDescription="0.141"
+                    android:titleCondensed="12"
+                    android:tooltipText="0.85"/>
+            </menu>
+        </item>
+    </group>
 
-    <item android:id="@+id/material13"
+    <item android:id="@+id/material15"
         android:title="Strop FILIGRAN"
         android:contentDescription="1"
         android:tooltipText="2.5"/>
 
-
-    <item android:id="@+id/material14"
-        android:title="@string/concrete_2200"
-        android:contentDescription="1"
-        android:tooltipText="1.3"/>
-    <item android:id="@+id/material1333"
-        android:title="@string/concrete_1900"
-        android:contentDescription="1"
-        android:tooltipText="1.0"/>
-    <item android:id="@+id/material141"
-        android:title="@string/reinforced_concrete"
-        android:contentDescription="1"
-        android:tooltipText="2.3"/>
-    <item android:id="@+id/material15"
-        android:title="@string/cobblestone"
-        android:contentDescription="1"
-        android:tooltipText="3.5"/>
     <item android:id="@+id/material16"
-        android:title="@string/sandstone"
-        android:contentDescription="1"
-        android:tooltipText="2.2"/>
-
+        android:title="Strop Ackermana"
+        android:contentDescription="0.23"
+        android:titleCondensed="40"
+        android:tooltipText="2.17"/>
 
 </menu>
         </item>
@@ -115,7 +152,7 @@
 
     <group
         android:id="@+id/menuGroup2">
-    <item android:title="@string/gipsy_i_wyroby_gipsowe">
+    <item android:title="Materiały konstrukcyjne">
         <menu>
     <item android:id="@+id/material21"
         android:title="@string/plyty_gipsowo_kartonowe"
@@ -129,30 +166,46 @@
         </menu>
     </item>
     </group>
-
     <group
         android:id="@+id/menuGroup3">
-        <item android:title="@string/drewno_i_mat_drewnopochodne">
+        <item android:title="@string/gipsy_i_wyroby_gipsowe">
             <menu>
                 <item android:id="@+id/material31"
+                    android:title="@string/plyty_gipsowo_kartonowe"
+                    android:tooltipText="0.23"/>
+                <item android:id="@+id/material32"
+                    android:title="@string/bloki_z_gipsu"
+                    android:tooltipText="0.35"/>
+                <item android:id="@+id/material33"
+                    android:title="@string/gazogips"
+                    android:tooltipText="0.35"/>
+            </menu>
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menuGroup4">
+        <item android:title="@string/drewno_i_mat_drewnopochodne">
+            <menu>
+                <item android:id="@+id/material41"
                     android:title="@string/sosna_wierk_w_poprzek_w_kien"
                     android:tooltipText="0.16"/>
-                <item android:id="@+id/material32"
+                <item android:id="@+id/material42"
                     android:title="@string/sosna_swierk_wzdluz_w_kien"
                     android:tooltipText="0.3"/>
-                <item android:id="@+id/material33"
+                <item android:id="@+id/material43"
                     android:title="@string/dab_buk_w_poprzek_wlokien"
                     android:tooltipText="0.22"/>
-                <item android:id="@+id/material34"
+                <item android:id="@+id/material44"
                     android:title="@string/dab_buk_wzdluz_wlokien"
                     android:tooltipText="0.4"/>
-                <item android:id="@+id/material35"
+                <item android:id="@+id/material45"
                     android:title="@string/plyta_osb"
                     android:tooltipText="0.13"/>
-                <item android:id="@+id/material36"
+                <item android:id="@+id/material46"
                     android:title="@string/plyta_mdf_800"
                     android:tooltipText="0.19"/>
-                <item android:id="@+id/material37"
+                <item android:id="@+id/material47"
                     android:title="@string/plywood"
                     android:tooltipText="0.16"/>
             </menu>
@@ -160,40 +213,40 @@
     </group>
 
     <group
-        android:id="@+id/menuGroup4">
+        android:id="@+id/menuGroup5">
         <item android:title="@string/materialy_termoizolacyjne">
             <menu>
-                <item android:id="@+id/material41"
+                <item android:id="@+id/material51"
                     android:title="@string/styropian_045"
                     android:tooltipText="0.045"/>
-                <item android:id="@+id/material42"
+                <item android:id="@+id/material52"
                     android:title="@string/styropian_042"
                     android:tooltipText="0.042"/>
-                <item android:id="@+id/material43"
+                <item android:id="@+id/material53"
                     android:title="@string/styropian_040"
                     android:tooltipText="0.04"/>
-                <item android:id="@+id/material44"
+                <item android:id="@+id/material54"
                     android:title="@string/styropian_035"
                     android:tooltipText="0.035"/>
-                <item android:id="@+id/material45"
+                <item android:id="@+id/material55"
                     android:title="@string/welna_mineralna_045"
                     android:tooltipText="0.045"/>
-                <item android:id="@+id/material46"
+                <item android:id="@+id/material56"
                     android:title="@string/welna_mineralna_040"
                     android:tooltipText="0.040"/>
-                <item android:id="@+id/material47"
+                <item android:id="@+id/material57"
                     android:title="@string/welna_mineralna_033"
                     android:tooltipText="0.033"/>
-                <item android:id="@+id/material48"
+                <item android:id="@+id/material58"
                     android:title="@string/welna_mineralna_035"
                     android:tooltipText="0.035"/>
-                <item android:id="@+id/material49"
+                <item android:id="@+id/material59"
                     android:title="@string/plyty_pu_029"
                     android:tooltipText="0.029"/>
-                <item android:id="@+id/material410"
+                <item android:id="@+id/material510"
                     android:title="@string/plyty_pir_023"
                     android:tooltipText="0.023"/>
-                <item android:id="@+id/material411"
+                <item android:id="@+id/material511"
                     android:title="@string/nieruchoma_warstwa_powietrza"
                     android:tooltipText="0.025"/>
             </menu>
@@ -201,23 +254,23 @@
     </group>
 
     <group
-        android:id="@+id/menuGroup5">
+        android:id="@+id/menuGroup6">
         <item android:title="@string/materialy_oslonowe">
 
             <menu>
-                <item android:id="@+id/material51"
+                <item android:id="@+id/material61"
                     android:title="@string/tynk_cementowy"
                     android:tooltipText="1.0"/>
-                <item android:id="@+id/material52"
+                <item android:id="@+id/material62"
                     android:title="@string/tynk_cementowo_wapienny"
                     android:tooltipText="0.82"/>
-                <item android:id="@+id/material53"
+                <item android:id="@+id/material63"
                     android:title="@string/tynk_wapienny"
                     android:tooltipText="0.7"/>
-                <item android:id="@+id/material54"
+                <item android:id="@+id/material64"
                     android:title="@string/tynk_gipsowy_lekki"
                     android:tooltipText="0.4"/>
-                <item android:id="@+id/material55"
+                <item android:id="@+id/material65"
                     android:title="@string/tynk_cienkowarstwowy"
                     android:tooltipText="0.7"/>
             </menu>
