@@ -449,7 +449,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
 
     private void uCalc() {
         int position = mLayerList.size();
-        rSum = 0.17;
+        rSum = 0.14;
 
         for (int i=0; i<position; i++)
         {
@@ -503,6 +503,8 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material136:
             case R.id.material141:
             case R.id.material142:
+            case R.id.material15:
+            case R.id.material16:
             case R.id.material31:
             case R.id.material33:
             case R.id.material34:
@@ -532,6 +534,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material63:
             case R.id.material64:
             case R.id.material65:
+            case R.id.material66:
             case R.id.material7:
                 isItemEditable.setText(item.getContentDescription().toString());
                 if (Double.parseDouble(item.getContentDescription().toString())!=1){
@@ -542,6 +545,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
                     mAdapter.notifyItemInserted(position);
                     uCalc();
                 } else {
+                    thicknessValue.setText(item.getTitleCondensed().toString());
                     lambdaValue.setText(item.getTooltipText());
                     layerPopUpButton.setText(item.getTitle());
                     popUpMetodsInit();

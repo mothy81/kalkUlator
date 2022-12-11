@@ -531,6 +531,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material53:
             case R.id.material54:
             case R.id.material55:
+            case R.id.material56:
                 isItemEditable.setText(item.getContentDescription().toString());
                 if (Double.parseDouble(item.getContentDescription().toString())!=1){
                     rrValue = Double.parseDouble(item.getContentDescription().toString());
@@ -540,10 +541,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     mAdapter.notifyItemInserted(position);
                     uCalc();
                 } else {
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                popUpMetodsInit();
-                }
+                    thicknessValue.setText(item.getTitleCondensed().toString());
+                    lambdaValue.setText(item.getTooltipText());
+                    layerPopUpButton.setText(item.getTitle());
+                    popUpMetodsInit();
+                    }
                 return true;
             case R.id.material6:
                     initNewMaterialDialog();
