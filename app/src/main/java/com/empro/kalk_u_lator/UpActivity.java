@@ -282,6 +282,8 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
         newLayerButton = findViewById(R.id.goToNewLayerLayout);
         decreaseButton = findViewById(R.id.thickness_decrease_button);
         increaseButton = findViewById(R.id.thickness_increase_button);
+        increaseButton.setHapticFeedbackEnabled(false);
+        decreaseButton.setHapticFeedbackEnabled(false);
 
         fabmenu1.setOnClickListener(v -> {
             saveData();
@@ -525,6 +527,12 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material59:
             case R.id.material510:
             case R.id.material511:
+            case R.id.material61:
+            case R.id.material62:
+            case R.id.material63:
+            case R.id.material64:
+            case R.id.material65:
+            case R.id.material7:
                 isItemEditable.setText(item.getContentDescription().toString());
                 if (Double.parseDouble(item.getContentDescription().toString())!=1){
                     rrValue = Double.parseDouble(item.getContentDescription().toString());

@@ -282,6 +282,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             newLayerButton = findViewById(R.id.goToNewLayerLayout);
             decreaseButton = findViewById(R.id.thickness_decrease_button);
             increaseButton = findViewById(R.id.thickness_increase_button);
+            increaseButton.setHapticFeedbackEnabled(false);
+            decreaseButton.setHapticFeedbackEnabled(false);
 
             fabmenu1.setOnClickListener(v -> {
                 saveData();
@@ -357,6 +359,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             increaseButton.setOnLongClickListener(v -> {
 
                 dValue2 = Integer.parseInt(thicknessValue.getText().toString())+10;
+
 
                 thicknessValue.setText(String.valueOf(dValue2));
                 return true;

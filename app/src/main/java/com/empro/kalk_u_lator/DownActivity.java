@@ -565,7 +565,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             if (newLambda.getText().length()==0) {
                 showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
             } else {
-                if (Double.valueOf(newLambda.getText().toString()) == 0) {
+                if (Double.parseDouble(newLambda.getText().toString()) == 0) {
                     showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
                 } else {
 
@@ -580,12 +580,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        cancelButton.setOnClickListener(v -> dialog.dismiss());
     }
 
     private void popUpMetodsInit() {
