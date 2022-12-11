@@ -35,11 +35,9 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
 
     private ArrayList<SingleItem> mLayerList;
     private ArrayList<SingleItem> savedLayerList;
-
     private RecyclerView mRecyclerView;
     private LayerAdapter mAdapter;
     private RecyclerView.LayoutManager mlayoutManager;
-
     private Button increaseButton;
     private Button decreaseButton;
     private Button layerPopUpButton;
@@ -49,7 +47,6 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
     private Button rBoxValue;
     private EditText thicknessValue;
     private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
-
     private int dValue;
     private int dValue2;
     private Double lValue;
