@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -22,11 +21,9 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,19 +34,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private ArrayList<SingleItem> savedLayerList;
 
     private RecyclerView mRecyclerView;
-    private LayerAdapter mAdapter;
     private RecyclerView.LayoutManager mlayoutManager;
+    private LayerAdapter mAdapter;
 
     private Button increaseButton;
     private Button decreaseButton;
     private Button layerPopUpButton;
     private Button newLayerButton;
+    private Button rBoxValue;
+    private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
     private TextView lambdaValue;
     private TextView isItemEditable;
-    private Button rBoxValue;
     private EditText thicknessValue;
-    private FloatingActionButton fabmenu1, fabmenu2, fabmenu3;
-
     private int dValue;
     private int dValue2;
     private Double lValue;

@@ -535,7 +535,6 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material64:
             case R.id.material65:
             case R.id.material66:
-            case R.id.material7:
                 isItemEditable.setText(item.getContentDescription().toString());
                 if (Double.parseDouble(item.getContentDescription().toString())!=1){
                     rrValue = Double.parseDouble(item.getContentDescription().toString());
@@ -551,7 +550,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
                     popUpMetodsInit();
                 }
                 return true;
-            case R.id.material6:
+            case R.id.material7:
                 initNewMaterialDialog();
                 return true;
             default: return false;

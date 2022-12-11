@@ -169,7 +169,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             public void onItemClick(int position) {
 
                 if (Integer.parseInt(mLayerList.get(position).getText5())==0) {
-                    showToastRed("NIE MOŻNA ZMIENIĆ GRUBOŚCI TEJ WARSTWY");
+                    showToastRed(getString(R.string.cant_change_thickness_toast));
                 } else {
 
                     Dialog dialog = new Dialog(DownActivity.this);
@@ -237,39 +237,33 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
                     });
 
-                    incButton.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            if (newD.getText().toString().length() == 0) {
-                                newD.setText("1");
-                            }
-                            int tempD = Integer.parseInt(newD.getText().toString());
-                            if (tempD < 89) {
-                                tempD = tempD + 10;
-                            } else {
-                                tempD = 99;
-                            }
-                            newD.setText(String.valueOf(tempD));
-                            return true;
+                    incButton.setOnLongClickListener(v -> {
+                        if (newD.getText().toString().length() == 0) {
+                            newD.setText("1");
                         }
+                        int tempD = Integer.parseInt(newD.getText().toString());
+                        if (tempD < 89) {
+                            tempD = tempD + 10;
+                        } else {
+                            tempD = 99;
+                        }
+                        newD.setText(String.valueOf(tempD));
+                        return true;
                     });
 
-                    decButton.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View v) {
-                            if (newD.getText().toString().length() == 0) {
-                                newD.setText("1");
-                            }
-
-                            int tempD = Integer.parseInt(newD.getText().toString());
-                            if (tempD > 10) {
-                                tempD = tempD - 10;
-                            } else {
-                                tempD = 1;
-                            }
-                            newD.setText(String.valueOf(tempD));
-                            return true;
+                    decButton.setOnLongClickListener(v -> {
+                        if (newD.getText().toString().length() == 0) {
+                            newD.setText("1");
                         }
+
+                        int tempD = Integer.parseInt(newD.getText().toString());
+                        if (tempD > 10) {
+                            tempD = tempD - 10;
+                        } else {
+                            tempD = 1;
+                        }
+                        newD.setText(String.valueOf(tempD));
+                        return true;
                     });
                 }
             }
@@ -288,6 +282,8 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         newLayerButton = findViewById(R.id.goToNewLayerLayout);
         decreaseButton = findViewById(R.id.thickness_decrease_button);
         increaseButton = findViewById(R.id.thickness_increase_button);
+        increaseButton.setHapticFeedbackEnabled(false);
+        decreaseButton.setHapticFeedbackEnabled(false);
 
         fabmenu1.setOnClickListener(v -> {
             saveData();
@@ -397,7 +393,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             SharedPreferences.Editor editor = sharedPreferences.edit();
             Gson gson = new Gson();
             String json = gson.toJson(mLayerList);
-            editor.putString("task list down", json);
+            editor.putString("task list downActivity", json);
             editor.apply();
             showToastBlue(getString(R.string.saved_layers_state));
             savedLayerList = new ArrayList<>();
@@ -409,7 +405,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("task list down", null);
+        String json = sharedPreferences.getString("task list downActivity", null);
         Type type = new TypeToken<ArrayList<SingleItem>>() {
         }.getType();
         savedLayerList = gson.fromJson(json, type);
@@ -453,7 +449,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void uCalc() {
         int position = mLayerList.size();
-        rSum = 0.17;
+        rSum = 0.14;
 
         for (int i=0; i<position; i++)
         {
@@ -472,7 +468,7 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public void showPopUp(View v){
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
-        popup.inflate(R.menu.popup_menu);
+        popup.inflate(R.menu.popup_menu_down);
         popup.show();
         layerPopUpButton.setText(R.string.choose_material_label);
         layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(116, 163, 233)));
@@ -487,16 +483,6 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.material11:
-            case R.id.material12:
-            case R.id.material13:
-            case R.id.material14:
-            case R.id.material15:
-            case R.id.material16:
-            case R.id.material17:
-            case R.id.material18:
-            case R.id.material19:
-            case R.id.material110:
             case R.id.material111:
             case R.id.material112:
             case R.id.material113:
@@ -504,11 +490,22 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material115:
             case R.id.material116:
             case R.id.material117:
-            case R.id.material21:
-            case R.id.material22:
-            case R.id.material23:
+            case R.id.material121:
+            case R.id.material122:
+            case R.id.material123:
+            case R.id.material124:
+            case R.id.material125:
+            case R.id.material131:
+            case R.id.material132:
+            case R.id.material133:
+            case R.id.material134:
+            case R.id.material135:
+            case R.id.material136:
+            case R.id.material141:
+            case R.id.material142:
+            case R.id.material15:
+            case R.id.material16:
             case R.id.material31:
-            case R.id.material32:
             case R.id.material33:
             case R.id.material34:
             case R.id.material35:
@@ -521,21 +518,39 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material45:
             case R.id.material46:
             case R.id.material47:
-            case R.id.material48:
-            case R.id.material49:
-            case R.id.material410:
-            case R.id.material411:
             case R.id.material51:
             case R.id.material52:
             case R.id.material53:
             case R.id.material54:
             case R.id.material55:
-                lambdaValue.setText(item.getTooltipText());
-                layerPopUpButton.setText(item.getTitle());
-                isItemEditable.setText(item.getContentDescription());
-                popUpMetodsInit();
+            case R.id.material56:
+            case R.id.material57:
+            case R.id.material58:
+            case R.id.material59:
+            case R.id.material510:
+            case R.id.material511:
+            case R.id.material61:
+            case R.id.material62:
+            case R.id.material63:
+            case R.id.material64:
+            case R.id.material65:
+            case R.id.material66:
+                isItemEditable.setText(item.getContentDescription().toString());
+                if (Double.parseDouble(item.getContentDescription().toString())!=1){
+                    rrValue = Double.parseDouble(item.getContentDescription().toString());
+                    int position = mLayerList.size();
+                    mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, item.getTitle().toString(),
+                            item.getTitleCondensed().toString(), item.getTooltipText().toString(), rrValue.toString(), "0"));
+                    mAdapter.notifyItemInserted(position);
+                    uCalc();
+                } else {
+                    thicknessValue.setText(item.getTitleCondensed().toString());
+                    lambdaValue.setText(item.getTooltipText());
+                    layerPopUpButton.setText(item.getTitle());
+                    popUpMetodsInit();
+                }
                 return true;
-            case R.id.material6:
+            case R.id.material7:
                 initNewMaterialDialog();
                 return true;
             default: return false;
@@ -563,10 +578,10 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         okButton.setOnClickListener(v -> {
 
             if (newLambda.getText().length()==0) {
-                showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
+                showToastRed(getString(R.string.lambda_0_toast));
             } else {
                 if (Double.parseDouble(newLambda.getText().toString()) == 0) {
-                    showToastRed("λ NIE MOŻE BYĆ RÓWNA 0");
+                    showToastRed(getString(R.string.lambda_0_toast));
                 } else {
 
                     layerPopUpButton.setText(newName.getText() + " λ=" + newLambda.getText());
