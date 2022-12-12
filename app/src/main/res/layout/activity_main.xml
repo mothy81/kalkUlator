@@ -9,29 +9,38 @@
     android:textAlignment="center"
     tools:context=".MainActivity">
 
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main_body"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_border_main"
+    android:layout_marginBottom="150dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="150dp"
+        android:background="@drawable/custom_border_main"
         android:autofillHints="name"
-        android:background="@color/recycler"
         android:padding="4dp"
         android:scrollbars="vertical"
         tools:layout_editor_absoluteX="27dp"
         tools:layout_editor_absoluteY="341dp" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/goToNewLayerLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="5dp"
         android:backgroundTint="@color/choose_button"
+        android:background="@drawable/custom_border_main"
         android:text="@string/layer_add"
         android:textSize="16sp"
         android:visibility="invisible"
@@ -67,11 +76,12 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/popup_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:backgroundTint="@color/choose_button"
+        android:background="@drawable/custom_border_main"
         android:onClick="showPopUp"
         android:text="@string/add_layer_label"
         android:textAllCaps="true"
@@ -80,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/main_body" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/thickness_decrease_button"
@@ -107,8 +117,7 @@
         android:id="@+id/thicknessValueEditText"
         android:layout_width="130dp"
         android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/d_box"
         android:ems="10"
@@ -119,7 +128,7 @@
         android:textColor="@color/incdec_button"
         android:textSize="24sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popup_button" />
 
@@ -168,12 +177,12 @@
         android:id="@+id/rBoxValue"
         android:layout_width="158dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/u_button"
         android:text="U = 0.000"
         android:textColor="@color/u_button_text"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="@+id/main_body"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
