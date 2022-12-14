@@ -480,30 +480,44 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.material11:
-            case R.id.material12:
-            case R.id.material13:
-            case R.id.material14:
-            case R.id.material15:
-            case R.id.material16:
-            case R.id.material17:
-            case R.id.material18:
-            case R.id.material19:
-            case R.id.material110:
-            case R.id.material111:
-            case R.id.material112:
-            case R.id.material113:
-            case R.id.material114:
-            case R.id.material115:
-            case R.id.material116:
-            case R.id.material117:
-            case R.id.material118:
-            case R.id.material119:
-            case R.id.material120:
+
             case R.id.material121:
+            case R.id.material122:
+            case R.id.material123:
+            case R.id.material124:
+            case R.id.material125:
+            case R.id.material126:
+            case R.id.material131:
+            case R.id.material132:
+            case R.id.material133:
+            case R.id.material134:
+            case R.id.material141:
+            case R.id.material142:
+            case R.id.material143:
+            case R.id.material144:
+            case R.id.material145:
+            case R.id.material151:
+            case R.id.material152:
+            case R.id.material153:
+            case R.id.material154:
+            case R.id.material161:
+            case R.id.material162:
+            case R.id.material163:
+            case R.id.material164:
+            case R.id.material165:
+            case R.id.material171:
+            case R.id.material172:
+            case R.id.material173:
+            case R.id.material174:
+            case R.id.material175:
+            case R.id.material176:
             case R.id.material21:
             case R.id.material22:
             case R.id.material23:
+            case R.id.material24:
+            case R.id.material25:
+            case R.id.material26:
+            case R.id.material27:
             case R.id.material31:
             case R.id.material32:
             case R.id.material33:
@@ -511,23 +525,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.material35:
             case R.id.material36:
             case R.id.material37:
+            case R.id.material38:
+            case R.id.material39:
+            case R.id.material310:
+            case R.id.material311:
             case R.id.material41:
             case R.id.material42:
             case R.id.material43:
             case R.id.material44:
             case R.id.material45:
             case R.id.material46:
-            case R.id.material47:
-            case R.id.material48:
-            case R.id.material49:
-            case R.id.material410:
-            case R.id.material411:
-            case R.id.material51:
-            case R.id.material52:
-            case R.id.material53:
-            case R.id.material54:
-            case R.id.material55:
-            case R.id.material56:
                 isItemEditable.setText(item.getContentDescription().toString());
                 if (Double.parseDouble(item.getContentDescription().toString())!=1){
                     rrValue = Double.parseDouble(item.getContentDescription().toString());
@@ -535,6 +542,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     mLayerList.add(position, new SingleItem(R.drawable.ic_baseline_equalizer_24, item.getTitle().toString(),
                             item.getTitleCondensed().toString(), item.getTooltipText().toString(), rrValue.toString(), "0"));
                     mAdapter.notifyItemInserted(position);
+                    layerPopUpButton.setText(R.string.add_layer_title);
                     uCalc();
                 } else {
                     thicknessValue.setText(item.getTitleCondensed().toString());
@@ -543,7 +551,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     popUpMetodsInit();
                     }
                 return true;
-            case R.id.material6:
+            case R.id.material1:
                     initNewMaterialDialog();
                 return true;
             default: return false;

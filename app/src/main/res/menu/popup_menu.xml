@@ -7,111 +7,204 @@
         <item android:title="@string/constr_materials">
 
 <menu>
-    <item android:id="@+id/material11"
-        android:title="@string/concrete_2400"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="1.7"/>
-    <item android:id="@+id/material12"
-        android:title="@string/concrete_2200"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="1.3"/>
-    <item android:id="@+id/material13"
-        android:title="@string/concrete_1900"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="1.0"/>
-    <item android:id="@+id/material14"
-        android:title="@string/reinforced_concrete"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="2.3"/>
-    <item android:id="@+id/material15"
-        android:title="@string/cobblestone"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="3.5"/>
-    <item android:id="@+id/material16"
-        android:title="@string/sandstone"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="2.2"/>
-    <item android:id="@+id/material17"
-        android:title="@string/cell_concrete_400"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.14"/>
-    <item android:id="@+id/material18"
-        android:title="@string/cell_concrete_500"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.17"/>
-    <item android:id="@+id/material19"
-        android:title="@string/cell_concrete_600"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.21"/>
-    <item android:id="@+id/material110"
-        android:title="@string/cell_concrete_700"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.25"/>
-    <item android:id="@+id/material111"
-        android:title="@string/cell_concrete_800"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.29"/>
-    <item android:id="@+id/material112"
-        android:title="@string/brick_wall"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.77"/>
-    <item android:id="@+id/material113"
-        android:title="@string/holedbrick_wall"
-        android:contentDescription="1"
-        android:titleCondensed="12"
-        android:tooltipText="0.62"/>
-    <item android:id="@+id/material114"
-        android:title="@string/mur_z_cegly_klinkierowej"
-        android:contentDescription="1"
-        android:titleCondensed="12"
-        android:tooltipText="1.05"/>
-    <item android:id="@+id/material115"
-        android:title="@string/mur_z_bl_silikatowych_drazonych"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.8"/>
-    <item android:id="@+id/material116"
-        android:title="@string/mur_z_bl_silikatowych_pelnych"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.9"/>
-    <item android:id="@+id/material117"
-        android:title="@string/mur_z_pustakow_poroton"
-        android:contentDescription="1"
-        android:titleCondensed="25"
-        android:tooltipText="0.24"/>
-    <item android:id="@+id/material118"
-        android:title="Mur z pust. POROTHERM 44cm"
-        android:contentDescription="2.6"
-        android:titleCondensed="44"
-        android:tooltipText="0.169"/>
-    <item android:id="@+id/material119"
-        android:title="Mur z pust. POROTHERM 38cm"
-        android:contentDescription="2.28"
-        android:titleCondensed="38"
-        android:tooltipText="0.167"/>
-    <item android:id="@+id/material120"
-        android:title="Mur z pust. POROTHERM 25cm"
-        android:contentDescription="0.66"
-        android:titleCondensed="25"
-        android:tooltipText="0.377"/>
-    <item android:id="@+id/material121"
-        android:title="Mur z pust. POROTHERM 11cm"
-        android:contentDescription="0.31"
-        android:titleCondensed="11"
-        android:tooltipText="0.359"/>
+    <group
+        android:id="@+id/menuGroup12">
+        <item android:title="YTONG">
+            <menu>
+                <item android:id="@+id/material121"
+                    android:title="Ytong PP5/0,7 (700)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.20"/>
+                <item android:id="@+id/material122"
+                    android:title="Ytong PP4/0,6 (600)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.16"/>
+                <item android:id="@+id/material123"
+                    android:title="Ytong PP3/0,5 (500)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.14"/>
+                <item android:id="@+id/material124"
+                    android:title="Ytong PP2,5/0,4 (400)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.11"/>
+                <item android:id="@+id/material125"
+                    android:title="Ytong PP2/0,35 (350)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.095"/>
+                <item android:id="@+id/material126"
+                    android:title="Ytong PP2/0,3 (300)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.086"/>
+            </menu>
+        </item>
+    </group>
+    <group
+        android:id="@+id/menuGroup13">
+        <item android:title="SOLBET">
+            <menu>
+                <item android:id="@+id/material131"
+                    android:title="SOLBET 700"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.19"/>
+                <item android:id="@+id/material132"
+                    android:title="SOLBET 600"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.17"/>
+                <item android:id="@+id/material133"
+                    android:title="SOLBET 500"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.14"/>
+                <item android:id="@+id/material134"
+                    android:title="SOLBET 350"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.085"/>
+            </menu>
+        </item>
+    </group>
+    <group
+        android:id="@+id/menuGroup14">
+        <item android:title="Gazobeton wg ISO 6946">
+            <menu>
+                <item android:id="@+id/material141"
+                    android:title="@string/cell_concrete_400"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.14"/>
+                <item android:id="@+id/material142"
+                    android:title="@string/cell_concrete_500"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.17"/>
+                <item android:id="@+id/material143"
+                    android:title="@string/cell_concrete_600"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.21"/>
+                <item android:id="@+id/material144"
+                    android:title="@string/cell_concrete_700"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.25"/>
+                <item android:id="@+id/material145"
+                    android:title="@string/cell_concrete_800"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.29"/>
+            </menu>
+        </item>
+    </group>
+    <group
+        android:id="@+id/menuGroup15">
+        <item android:title="POROTHERM">
+            <menu>
+                <item android:id="@+id/material151"
+                    android:title="Mur z pust. POROTHERM 44cm"
+                    android:contentDescription="2.6"
+                    android:titleCondensed="44"
+                    android:tooltipText="0.169"/>
+                <item android:id="@+id/material152"
+                    android:title="Mur z pust. POROTHERM 38cm"
+                    android:contentDescription="2.28"
+                    android:titleCondensed="38"
+                    android:tooltipText="0.167"/>
+                <item android:id="@+id/material153"
+                    android:title="Mur z pust. POROTHERM 25cm"
+                    android:contentDescription="0.66"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.377"/>
+                <item android:id="@+id/material154"
+                    android:title="Mur z pust. POROTHERM 11cm"
+                    android:contentDescription="0.31"
+                    android:titleCondensed="11"
+                    android:tooltipText="0.359"/>
+            </menu>
+        </item>
+    </group>
+    <group
+        android:id="@+id/menuGroup16">
+        <item android:title="Beton i żelbet">
+            <menu>
+                <item android:id="@+id/material161"
+                    android:title="@string/concrete_2400"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="1.7"/>
+                <item android:id="@+id/material162"
+                    android:title="@string/concrete_2200"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="1.3"/>
+                <item android:id="@+id/material163"
+                    android:title="@string/concrete_1900"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="1.0"/>
+                <item android:id="@+id/material164"
+                    android:title="@string/reinforced_concrete"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="2.3"/>
+                <item android:id="@+id/material165"
+                    android:title="Żelbet (2% zbrojenia)"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="2.5"/>
+            </menu>
+        </item>
+    </group>
+    <group
+        android:id="@+id/menuGroup17">
+        <item android:title="Cegła silikat i inne mat. murowe">
+            <menu>
+                <item android:id="@+id/material171"
+                    android:title="@string/brick_wall"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.77"/>
+                <item android:id="@+id/material172"
+                    android:title="@string/holedbrick_wall"
+                    android:contentDescription="1"
+                    android:titleCondensed="12"
+                    android:tooltipText="0.62"/>
+                <item android:id="@+id/material173"
+                    android:title="@string/mur_z_cegly_klinkierowej"
+                    android:contentDescription="1"
+                    android:titleCondensed="12"
+                    android:tooltipText="1.05"/>
+                <item android:id="@+id/material08"
+                    android:title="@string/mur_z_bl_silikatowych_drazonych"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.8"/>
+                <item android:id="@+id/material174"
+                    android:title="@string/mur_z_bl_silikatowych_pelnych"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.9"/>
+                <item android:id="@+id/material175"
+                    android:title="@string/mur_z_pustakow_poroton"
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.24"/>
+                <item android:id="@+id/material176"
+                    android:title="Mur z pustaków żużlobeton."
+                    android:contentDescription="1"
+                    android:titleCondensed="25"
+                    android:tooltipText="0.31"/>
+            </menu>
+        </item>
+    </group>
+
 
 </menu>
         </item>
@@ -119,62 +212,39 @@
 
     <group
         android:id="@+id/menuGroup2">
-    <item android:title="@string/gipsy_i_wyroby_gipsowe">
-        <menu>
-    <item android:id="@+id/material21"
-        android:title="@string/plyty_gipsowo_kartonowe"
-        android:contentDescription="1"
-        android:titleCondensed="1"
-        android:tooltipText="0.23"/>
-    <item android:id="@+id/material22"
-        android:title="@string/bloki_z_gipsu"
-        android:contentDescription="1"
-        android:titleCondensed="10"
-        android:tooltipText="0.35"/>
-    <item android:id="@+id/material23"
-        android:title="@string/gazogips"
-        android:contentDescription="1"
-        android:titleCondensed="10"
-        android:tooltipText="0.35"/>
-        </menu>
-    </item>
-    </group>
-
-    <group
-        android:id="@+id/menuGroup3">
         <item android:title="@string/drewno_i_mat_drewnopochodne">
             <menu>
-                <item android:id="@+id/material31"
+                <item android:id="@+id/material21"
                     android:title="@string/sosna_wierk_w_poprzek_w_kien"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.16"/>
-                <item android:id="@+id/material32"
+                <item android:id="@+id/material22"
                     android:title="@string/sosna_swierk_wzdluz_w_kien"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.3"/>
-                <item android:id="@+id/material33"
+                <item android:id="@+id/material23"
                     android:title="@string/dab_buk_w_poprzek_wlokien"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.22"/>
-                <item android:id="@+id/material34"
+                <item android:id="@+id/material24"
                     android:title="@string/dab_buk_wzdluz_wlokien"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.4"/>
-                <item android:id="@+id/material35"
+                <item android:id="@+id/material25"
                     android:title="@string/plyta_osb"
                     android:contentDescription="1"
                     android:tooltipText="0.13"
                     android:titleCondensed="2"/>
-                <item android:id="@+id/material36"
+                <item android:id="@+id/material26"
                     android:title="@string/plyta_mdf_800"
                     android:contentDescription="1"
                     android:titleCondensed="2"
                     android:tooltipText="0.19"/>
-                <item android:id="@+id/material37"
+                <item android:id="@+id/material27"
                     android:title="@string/plywood"
                     android:contentDescription="1"
                     android:titleCondensed="2"
@@ -184,60 +254,60 @@
     </group>
 
     <group
-        android:id="@+id/menuGroup4">
+        android:id="@+id/menuGroup3">
         <item android:title="@string/materialy_termoizolacyjne">
             <menu>
-                <item android:id="@+id/material41"
+                <item android:id="@+id/material31"
                     android:title="@string/styropian_045"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.045"/>
-                <item android:id="@+id/material42"
+                <item android:id="@+id/material32"
                     android:title="@string/styropian_042"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.042"/>
-                <item android:id="@+id/material43"
+                <item android:id="@+id/material33"
                     android:title="@string/styropian_040"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.04"/>
-                <item android:id="@+id/material44"
+                <item android:id="@+id/material34"
                     android:title="@string/styropian_035"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.035"/>
-                <item android:id="@+id/material45"
+                <item android:id="@+id/material35"
                     android:title="@string/welna_mineralna_045"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.045"/>
-                <item android:id="@+id/material46"
+                <item android:id="@+id/material36"
                     android:title="@string/welna_mineralna_040"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.040"/>
-                <item android:id="@+id/material47"
+                <item android:id="@+id/material37"
                     android:title="@string/welna_mineralna_033"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.033"/>
-                <item android:id="@+id/material48"
+                <item android:id="@+id/material38"
                     android:title="@string/welna_mineralna_035"
                     android:contentDescription="1"
                     android:titleCondensed="10"
                     android:tooltipText="0.035"/>
-                <item android:id="@+id/material49"
+                <item android:id="@+id/material39"
                     android:title="@string/plyty_pu_029"
                     android:contentDescription="1"
                     android:titleCondensed="5"
                     android:tooltipText="0.029"/>
-                <item android:id="@+id/material410"
+                <item android:id="@+id/material310"
                     android:title="@string/plyty_pir_023"
                     android:contentDescription="1"
                     android:titleCondensed="5"
                     android:tooltipText="0.023"/>
-                <item android:id="@+id/material411"
+                <item android:id="@+id/material311"
                     android:title="@string/nieruchoma_warstwa_powietrza"
                     android:contentDescription="1"
                     android:titleCondensed="5"
@@ -247,36 +317,36 @@
     </group>
 
     <group
-        android:id="@+id/menuGroup5">
+        android:id="@+id/menuGroup4">
         <item android:title="@string/materialy_oslonowe">
 
             <menu>
-                <item android:id="@+id/material51"
+                <item android:id="@+id/material41"
                     android:title="@string/tynk_cementowy"
                     android:contentDescription="1"
                     android:titleCondensed="2"
                     android:tooltipText="1.0"/>
-                <item android:id="@+id/material52"
+                <item android:id="@+id/material42"
                     android:title="@string/tynk_cementowo_wapienny"
                     android:contentDescription="1"
                     android:titleCondensed="2"
                     android:tooltipText="0.82"/>
-                <item android:id="@+id/material53"
+                <item android:id="@+id/material43"
                     android:title="@string/tynk_wapienny"
                     android:contentDescription="1"
                     android:titleCondensed="2"
                     android:tooltipText="0.7"/>
-                <item android:id="@+id/material54"
+                <item android:id="@+id/material44"
                     android:title="@string/tynk_gipsowy_lekki"
                     android:contentDescription="1"
                     android:titleCondensed="1"
                     android:tooltipText="0.4"/>
-                <item android:id="@+id/material55"
+                <item android:id="@+id/material45"
                     android:title="@string/tynk_cienkowarstwowy"
                     android:contentDescription="1"
                     android:titleCondensed="1"
                     android:tooltipText="0.7"/>
-                <item android:id="@+id/material56"
+                <item android:id="@+id/material46"
                     android:title="@string/plyty_gipsowo_kartonowe"
                     android:contentDescription="1"
                     android:tooltipText="0.23"/>
@@ -286,7 +356,7 @@
 
         <item android:title="@string/materia_wlasny"
             android:contentDescription="1"
-            android:id="@+id/material6"
+            android:id="@+id/material1"
             android:tooltipText="1.0">
 
         </item>
