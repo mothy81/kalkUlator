@@ -585,6 +585,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
 
                     layerPopUpButton.setText(newName.getText() + " λ=" + newLambda.getText());
                     lambdaValue.setText(newLambda.getText());
+                    layerPopUpButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(235, 243, 251)));
                     newLayerButton.setVisibility(View.VISIBLE);
                     thicknessValue.setVisibility(View.VISIBLE);
                     decreaseButton.setVisibility(View.VISIBLE);
