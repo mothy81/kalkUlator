@@ -84,9 +84,9 @@
                     android:tooltipText="0.844"/>
                 <item android:id="@+id/material127"
                     android:title="Strop TERIVA LIGHT"
-                    android:contentDescription="0.39"
+                    android:contentDescription="3.088"
                     android:titleCondensed="24"
-                    android:tooltipText="3.088"/>
+                    android:tooltipText="0.078"/>
             </menu>
         </item>
     </group>
