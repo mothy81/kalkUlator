@@ -177,6 +177,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         Button cancelButton = dialog.findViewById(R.id.cancelButton);
                         Button incButton = dialog.findViewById(R.id.increaseButton);
                         Button decButton = dialog.findViewById(R.id.decreaseButton);
+                        incButton.setHapticFeedbackEnabled(false);
+                        decButton.setHapticFeedbackEnabled(false);
                         EditText newD = dialog.findViewById((R.id.thicknessDialogValue));
                         newD.setText(mLayerList.get(position).getText2());
                         newD.setFilters(new InputFilter[]{
