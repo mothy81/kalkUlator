@@ -483,6 +483,13 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
 
         switch (item.getItemId()){
+            case R.id.material111:
+            case R.id.material112:
+            case R.id.material113:
+            case R.id.material114:
+            case R.id.material115:
+            case R.id.material116:
+            case R.id.material117:
             case R.id.material121:
             case R.id.material122:
             case R.id.material123:

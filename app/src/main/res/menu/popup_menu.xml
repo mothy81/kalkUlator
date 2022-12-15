@@ -349,6 +349,7 @@
                 <item android:id="@+id/material46"
                     android:title="@string/plyty_gipsowo_kartonowe"
                     android:contentDescription="1"
+                    android:titleCondensed="1"
                     android:tooltipText="0.23"/>
             </menu>
         </item>

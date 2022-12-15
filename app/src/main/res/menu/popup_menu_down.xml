@@ -132,12 +132,12 @@
         <item android:title="Strop Kleina">
             <menu>
                 <item android:id="@+id/material141"
-                    android:title="Strop lekki"
+                    android:title="Strop Kleina lekki"
                     android:contentDescription="0.077"
                     android:titleCondensed="7"
                     android:tooltipText="0,85"/>
                 <item android:id="@+id/material142"
-                    android:title="Strop ciężki"
+                    android:title="Strop Kleina ciężki"
                     android:contentDescription="0.141"
                     android:titleCondensed="12"
                     android:tooltipText="0.85"/>
