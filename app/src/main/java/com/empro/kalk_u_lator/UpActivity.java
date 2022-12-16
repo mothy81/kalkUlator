@@ -505,6 +505,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
             case R.id.material15:
             case R.id.material16:
             case R.id.material31:
+            case R.id.material32:
             case R.id.material33:
             case R.id.material34:
             case R.id.material35:
