@@ -76,6 +76,7 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
         buildRecyclerView();
         setButtons();
         showFabMenu();
+        loadSavedState();
 
         thicknessValue.setFilters(new InputFilter[]{
                 new InputFilter.LengthFilter(2)
@@ -83,6 +84,53 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
+    }
+
+    private void loadSavedState()
+    {
+        savedLayerList = new ArrayList<>();
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("onPauseSave3", null);
+        Type type = new TypeToken<ArrayList<SingleItem>>() {}.getType();
+        savedLayerList = gson.fromJson(json, type);
+
+        if (savedLayerList == null){
+
+        } else {
+
+            clearAll();
+            int j = savedLayerList.size();
+            for (int i = 0; i < j; i++) {
+                String text1temp = savedLayerList.get(i).getText1();
+                String text2temp = savedLayerList.get(i).getText2();
+                String text3temp = savedLayerList.get(i).getText3();
+                String text4temp = savedLayerList.get(i).getText4();
+                String text5temp = savedLayerList.get(i).getText5();
+                mLayerList.add(i, new SingleItem(R.drawable.ic_baseline_equalizer_24, text1temp, text2temp, text3temp, text4temp, text5temp));
+                mAdapter.notifyItemInserted(i);
+            }
+            uCalc();
+            showFabMenu();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mLayerList.size() == 0) {
+
+        } else {
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(mLayerList);
+            editor.putString("onPauseSave3", json);
+            editor.apply();
+            savedLayerList = new ArrayList<>();
+        }
+
+
     }
 
     void showToastBlue(String text){
