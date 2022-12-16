@@ -123,6 +123,11 @@ public class DownActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         super.onPause();
         if (mLayerList.size() == 0) {
 
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove("onPauseSave2");
+            editor.commit();
+
         } else {
             SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();

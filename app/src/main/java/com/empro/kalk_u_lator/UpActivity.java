@@ -120,6 +120,11 @@ public class UpActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
         super.onPause();
         if (mLayerList.size() == 0) {
 
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove("onPauseSave3");
+            editor.commit();
+
         } else {
             SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
